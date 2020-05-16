@@ -2,7 +2,6 @@ package me.Josh444.ProjectJim.Utils;
 
 import java.util.Arrays;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -23,7 +22,7 @@ public class Item {
 		ItemStack item = new ItemStack(material,amount);
 		ItemMeta meta = item.getItemMeta();
 		
-		meta.setDisplayName(ChatColor.WHITE + name);
+		meta.setDisplayName(name);
 		meta.setLore(Arrays.asList(lore));
 		
 		item.setItemMeta(meta);
