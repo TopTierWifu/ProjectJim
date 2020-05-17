@@ -12,15 +12,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.Josh444.ProjectJim.ProjectJim;
 import me.Josh444.ProjectJim.Utils.Item;
 
-public class Research implements Listener{
+public class PublishedResearch implements Listener{
 	
 	private JavaPlugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 
-	public void customResearchBook() {
+	public void customPublishedResearch() {
 		
-		String name = ChatColor.DARK_PURPLE + "Research";
+		String name = ChatColor.DARK_PURPLE + "Published Research";
 		String blank = "";
-		String open = ChatColor.DARK_AQUA + "Right Click" + ChatColor.WHITE + " to bind to self";
+		String open = ChatColor.DARK_AQUA + "Right Click" + ChatColor.WHITE + " to publish all your research for others";
 		
 		ItemStack item = Item.make(Material.ENCHANTED_BOOK, 1, name, blank, open);
 		NamespacedKey key = new NamespacedKey(plugin, item.getType().name().toString());
