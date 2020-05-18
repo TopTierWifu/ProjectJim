@@ -8,6 +8,7 @@ import me.Josh444.ProjectJim.CustomRecipes.FieldJournal;
 import me.Josh444.ProjectJim.CustomRecipes.PublishedResearch;
 import me.Josh444.ProjectJim.Listeners.OnJoin;
 import me.Josh444.ProjectJim.Listeners.OpenFieldJournal;
+import me.Josh444.ProjectJim.Listeners.CustomInventories.FieldJournalListener;
 
 public class ProjectJim extends JavaPlugin{
 	
@@ -15,8 +16,11 @@ public class ProjectJim extends JavaPlugin{
 		
 		//Registering Events
 		getServer().getPluginManager().registerEvents(new OnJoin(), this);
-		getServer().getPluginManager().registerEvents(new OpenFieldJournal(), this);
 		
+			//Field Journal
+			getServer().getPluginManager().registerEvents(new OpenFieldJournal(), this);
+			getServer().getPluginManager().registerEvents(new FieldJournalListener(), this);
+			
 		//Custom Recipes
 		FieldJournal fJ = new FieldJournal(); fJ.customFieldJournal();
 		PublishedResearch pR = new PublishedResearch(); pR.customPublishedResearch();

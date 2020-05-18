@@ -10,6 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 import me.Josh444.ProjectJim.ProjectJim;
 import me.Josh444.ProjectJim.Utils.Item;
+import me.Josh444.ProjectJim.Utils.PlayerStats;
 
 
 
@@ -17,13 +18,15 @@ public class FieldJournalInventory implements Listener {
 	
 	private Plugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 	
-	public String inventoryName = "Field Journal";
+	public static String inventoryName = "Field Journal";
 		
 	public void fieldJournalInventory(Player p){
 		
+		String[]attributes = PlayerStats.attributes(p);
+		
 		ItemStack glass = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
 		ItemStack config = Item.make(Material.REDSTONE_TORCH, 1, ChatColor.RED + "Config");
-		ItemStack pS = Item.skull(p, 1, (ChatColor.YELLOW + p.getName() + "'s Stats"));
+		ItemStack pS = Item.skull(p, 1, (ChatColor.YELLOW + p.getName() + "'s Stats"), attributes);
 		ItemStack rM = Item.make(Material.HOPPER, 1, ChatColor.YELLOW + "Research Materials");
 		ItemStack cD = Item.make(Material.ENCHANTED_BOOK, 1, ChatColor.YELLOW + "Collected Data");
 		ItemStack uQ = Item.make(Material.WRITABLE_BOOK, 1, ChatColor.LIGHT_PURPLE + "Unanswered Questions");
