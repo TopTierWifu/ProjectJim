@@ -24,23 +24,40 @@ public class FieldJournalInventory implements Listener {
 		
 		String[]attributes = PlayerStats.attributes(p);
 		
-		ItemStack glass = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
-		ItemStack config = Item.make(Material.REDSTONE_TORCH, 1, ChatColor.RED + "Config");
-		ItemStack pS = Item.skull(p, 1, (ChatColor.YELLOW + p.getName() + "'s Stats"), attributes);
-		ItemStack rM = Item.make(Material.HOPPER, 1, ChatColor.YELLOW + "Research Materials");
-		ItemStack cD = Item.make(Material.ENCHANTED_BOOK, 1, ChatColor.YELLOW + "Collected Data");
-		ItemStack uQ = Item.make(Material.WRITABLE_BOOK, 1, ChatColor.LIGHT_PURPLE + "Unanswered Questions");
-		ItemStack close = Item.make(Material.BARRIER, 1, ChatColor.RED + "Close");
-
+		ItemStack gl = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
+		ItemStack g2 = Item.make(Material.RED_STAINED_GLASS_PANE, 1, ChatColor.RED + "Not Unlocked");	
 		
-		Inventory i = plugin.getServer().createInventory(null, 27, inventoryName);
+		ItemStack sp = Item.make(Material.NETHER_STAR, 1, ChatColor.YELLOW + "Stat Points");
+		ItemStack rm = Item.make(Material.HOPPER, 1, ChatColor.YELLOW + "Research Materials");
+		ItemStack ps = Item.skull(p, 1, (ChatColor.YELLOW + p.getName() + "'s Stats"), attributes);
+		ItemStack cd = Item.make(Material.ENCHANTED_BOOK, 1, ChatColor.YELLOW + "Collected Data");
+		ItemStack uq = Item.make(Material.WRITABLE_BOOK, 1, ChatColor.LIGHT_PURPLE + "Unanswered Questions");
+		
+		ItemStack et = Item.make(Material.ENCHANTING_TABLE, 1, ChatColor.GREEN + "Portable Enchanting Table");
+		ItemStack an = Item.make(Material.ANVIL, 1, ChatColor.GREEN + "Portable Anvil");
+		ItemStack ct = Item.make(Material.CRAFTING_TABLE, 1, ChatColor.GREEN + "Portable Crafting Table");
+		ItemStack ec = Item.make(Material.ENDER_CHEST, 1, ChatColor.GREEN + "Portable Enderchest");
+		ItemStack gs = Item.make(Material.GRINDSTONE, 1, ChatColor.GREEN + "Portable Grindstone");
+		ItemStack ca = Item.make(Material.CARTOGRAPHY_TABLE, 1, ChatColor.GREEN + "Portable Cartography Table");
+		ItemStack st = Item.make(Material.STONECUTTER, 1, ChatColor.GREEN + "Portable Stonecutter");
+		ItemStack lm = Item.make(Material.LOOM, 1, ChatColor.GREEN + "Portable Loom");
+		
+		ItemStack as = Item.make(Material.PLAYER_HEAD, 1, ChatColor.YELLOW + "Attribute Settings");
+		ItemStack co = Item.make(Material.REDSTONE_TORCH, 1, ChatColor.RED + "Config");
+		
+		Inventory i = plugin.getServer().createInventory(null, 54, inventoryName);
 		
 		ItemStack[] fjGUI = new ItemStack[] {
-				glass,glass,glass,glass,glass,glass,glass,glass,glass,
-				glass,config,null,null,pS,rM,cD,uQ,glass,
-				glass,glass,glass,glass,close,glass,glass,glass,glass
+				gl,gl,gl,gl,gl,gl,gl,gl,gl,
+				gl,gl,sp,rm,ps,cd,uq,gl,gl,
+				gl,gl,gl,gl,gl,gl,gl,gl,gl,
+				gl,gl,g2,g2,g2,g2,g2,gl,gl,
+                gl,gl,gl,g2,g2,g2,gl,gl,gl,
+				co,gl,gl,gl,gl,gl,gl,gl,as
 		};
 		
+		//gl,gl,et,an,ct,ec,gs,gl,gl,
+		//gl,gl,gl,ca,st,lm,gl,gl,gl,
 		
 		i.setContents(fjGUI);
 		
