@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameRule;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.Josh444.ProjectJim.CustomRecipes.CompressedCobblestone;
 import me.Josh444.ProjectJim.CustomRecipes.FieldJournal;
 import me.Josh444.ProjectJim.CustomRecipes.PublishedResearch;
 import me.Josh444.ProjectJim.Listeners.OnJoin;
@@ -21,9 +22,16 @@ public class ProjectJim extends JavaPlugin{
 			getServer().getPluginManager().registerEvents(new OpenFieldJournal(), this);
 			getServer().getPluginManager().registerEvents(new FieldJournalListener(), this);
 			
+			//Recipe Discovery
+		
+		//Loading config
+		getConfig().options().copyDefaults(true);
+		saveConfig();
+			
 		//Custom Recipes
 		FieldJournal fJ = new FieldJournal(); fJ.customFieldJournal();
 		PublishedResearch pR = new PublishedResearch(); pR.customPublishedResearch();
+		CompressedCobblestone cC = new CompressedCobblestone(); cC.compressedCobblestone();
 		
 		//Enabling limited crafting so custom recipes may work properly in recipe book
 		getServer().getWorld("world").setGameRule(GameRule.DO_LIMITED_CRAFTING, true);

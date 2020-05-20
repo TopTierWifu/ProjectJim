@@ -10,7 +10,7 @@ import me.Josh444.ProjectJim.CustomInventories.FieldJournalInventory;
 
 public class OpenFieldJournal implements Listener{
 	
-	FieldJournalInventory fJI = new FieldJournalInventory();
+	private FieldJournalInventory fJI = new FieldJournalInventory();
 	
 	@EventHandler
 	public void openFieldJournal(PlayerInteractEvent e) {

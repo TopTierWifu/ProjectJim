@@ -24,6 +24,9 @@ public class FieldJournalInventory implements Listener {
 		
 		String[]attributes = PlayerStats.attributes(p);
 		
+		String settings = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWMyZmYyNDRkZmM5ZGQzYTJjZWY2MzExMmU3NTAyZGM2MzY3YjBkMDIxMzI5NTAzNDdiMmI0NzlhNzIzNjZkZCJ9fX0=";
+		
+		
 		ItemStack gl = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
 		ItemStack g2 = Item.make(Material.RED_STAINED_GLASS_PANE, 1, ChatColor.RED + "Not Unlocked");	
 		
@@ -33,17 +36,17 @@ public class FieldJournalInventory implements Listener {
 		ItemStack cd = Item.make(Material.ENCHANTED_BOOK, 1, ChatColor.YELLOW + "Collected Data");
 		ItemStack uq = Item.make(Material.WRITABLE_BOOK, 1, ChatColor.LIGHT_PURPLE + "Unanswered Questions");
 		
-		ItemStack et = Item.make(Material.ENCHANTING_TABLE, 1, ChatColor.GREEN + "Portable Enchanting Table");
-		ItemStack an = Item.make(Material.ANVIL, 1, ChatColor.GREEN + "Portable Anvil");
-		ItemStack ct = Item.make(Material.CRAFTING_TABLE, 1, ChatColor.GREEN + "Portable Crafting Table");
-		ItemStack ec = Item.make(Material.ENDER_CHEST, 1, ChatColor.GREEN + "Portable Enderchest");
-		ItemStack gs = Item.make(Material.GRINDSTONE, 1, ChatColor.GREEN + "Portable Grindstone");
-		ItemStack ca = Item.make(Material.CARTOGRAPHY_TABLE, 1, ChatColor.GREEN + "Portable Cartography Table");
-		ItemStack st = Item.make(Material.STONECUTTER, 1, ChatColor.GREEN + "Portable Stonecutter");
-		ItemStack lm = Item.make(Material.LOOM, 1, ChatColor.GREEN + "Portable Loom");
+		//ItemStack et = Item.make(Material.ENCHANTING_TABLE, 1, ChatColor.GREEN + "Portable Enchanting Table");
+		//ItemStack an = Item.make(Material.ANVIL, 1, ChatColor.GREEN + "Portable Anvil");
+		//ItemStack ct = Item.make(Material.CRAFTING_TABLE, 1, ChatColor.GREEN + "Portable Crafting Table");
+		//ItemStack ec = Item.make(Material.ENDER_CHEST, 1, ChatColor.GREEN + "Portable Enderchest");
+		//ItemStack gs = Item.make(Material.GRINDSTONE, 1, ChatColor.GREEN + "Portable Grindstone");
+		//ItemStack ca = Item.make(Material.CARTOGRAPHY_TABLE, 1, ChatColor.GREEN + "Portable Cartography Table");
+		//ItemStack st = Item.make(Material.STONECUTTER, 1, ChatColor.GREEN + "Portable Stonecutter");
+		//ItemStack lm = Item.make(Material.LOOM, 1, ChatColor.GREEN + "Portable Loom");
 		
 		ItemStack as = Item.make(Material.PLAYER_HEAD, 1, ChatColor.YELLOW + "Attribute Settings");
-		ItemStack co = Item.make(Material.REDSTONE_TORCH, 1, ChatColor.RED + "Config");
+		ItemStack co = Item.skull(settings, 1, ChatColor.RED + "Config");
 		
 		Inventory i = plugin.getServer().createInventory(null, 54, inventoryName);
 		
