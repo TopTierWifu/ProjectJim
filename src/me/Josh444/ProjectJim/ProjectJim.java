@@ -31,7 +31,10 @@ public class ProjectJim extends JavaPlugin{
 		//Custom Recipes
 		FieldJournal fJ = new FieldJournal(); fJ.customFieldJournal();
 		PublishedResearch pR = new PublishedResearch(); pR.customPublishedResearch();
-		CompressedCobblestone cC = new CompressedCobblestone(); cC.compressedCobblestone();
+		CompressedCobblestone cC = new CompressedCobblestone();
+		cC.compressedCobblestone();
+		cC.compressedCobblestone2();
+		cC.compressedCobblestone3();
 		
 		//Enabling limited crafting so custom recipes may work properly in recipe book
 		getServer().getWorld("world").setGameRule(GameRule.DO_LIMITED_CRAFTING, true);

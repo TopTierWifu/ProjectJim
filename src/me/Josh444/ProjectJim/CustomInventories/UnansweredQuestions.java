@@ -14,12 +14,14 @@ public class UnansweredQuestions implements Listener {
 	
 	private Plugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 	
-	public static String inventoryName = "Field Journal";
+	public static String inventoryName = "Unanswered Questions";
 		
 	public void unansweredQuestionsInventory(Player p){		
 		
 		ItemStack n = null;
 		ItemStack g = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
+		ItemStack x = Item.make(Material.RED_STAINED_GLASS_PANE, 1, " ");
+		ItemStack y = Item.make(Material.GREEN_STAINED_GLASS_PANE, 1, " ");
 		
 		Inventory i = plugin.getServer().createInventory(null, 54, inventoryName);
 		
@@ -33,6 +35,8 @@ public class UnansweredQuestions implements Listener {
 		};
 		
 		i.setContents(uqGUI);
+		i.addItem(x);
+		i.addItem(y);
 		
 		p.openInventory(i);
 	}
