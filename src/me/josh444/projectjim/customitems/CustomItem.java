@@ -12,5 +12,5 @@ public class CustomItem {
 	public static final ItemStack FIELD_JOURNAL = Item.make(Material.WRITTEN_BOOK, 1, ChatColor.DARK_PURPLE + "Field Journal");
 	
 	//Compressed Items
-	public static final ItemStack COMPRESSED_COBBLESTONE = Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1);
+	public static final ItemStack COMPRESSED_COBBLESTONE = Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.YELLOW + "Compressed Cobblestone");
 }
