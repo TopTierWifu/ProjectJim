@@ -1,9 +1,8 @@
-package me.Josh444.ProjectJim.Utils;
+package me.josh444.projectjim.utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
-
-import net.md_5.bungee.api.ChatColor;
 
 public class PlayerStats {
 

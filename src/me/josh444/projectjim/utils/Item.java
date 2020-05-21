@@ -1,4 +1,4 @@
-package me.Josh444.ProjectJim.Utils;
+package me.josh444.projectjim.utils;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

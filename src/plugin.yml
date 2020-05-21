@@ -1,6 +1,6 @@
 name: ProjectJim
 author: Josh444
 version: 0.1
-main: me.Josh444.ProjectJim.ProjectJim
+main: me.josh444.projectjim.ProjectJim
 description: Adds more progression for Minecraft 1.15.2
 api-version: 1.13

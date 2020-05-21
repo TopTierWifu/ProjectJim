@@ -1,7 +1,6 @@
-package me.Josh444.ProjectJim.CustomRecipes;
+package me.josh444.projectjim.customrecipes;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.Listener;
@@ -9,18 +8,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Josh444.ProjectJim.ProjectJim;
-import me.Josh444.ProjectJim.Utils.Item;
+import me.josh444.projectjim.ProjectJim;
+import me.josh444.projectjim.customitems.CustomItem;
 
 public class FieldJournal implements Listener{
 	
 	private JavaPlugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 
-	public void customFieldJournal() {
+	public void addRecipe() {
 		
-		String name = ChatColor.DARK_PURPLE + "Field Journal";
-		
-		ItemStack item = Item.make(Material.WRITTEN_BOOK, 1, name);
+		ItemStack item = CustomItem.FIELD_JOURNAL;
 		NamespacedKey key = new NamespacedKey(plugin, item.getType().name().toString());
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
