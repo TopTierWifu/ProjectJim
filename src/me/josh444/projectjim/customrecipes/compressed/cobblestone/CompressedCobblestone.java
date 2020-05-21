@@ -1,4 +1,4 @@
-package me.josh444.projectjim.customrecipes;
+package me.josh444.projectjim.customrecipes.compressed.cobblestone;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,10 +18,10 @@ public class CompressedCobblestone implements Listener{
 	public void addRecipe() {
 		
 		ItemStack item = CustomItem.COMPRESSED_COBBLESTONE;
-		NamespacedKey key = new NamespacedKey(plugin, item.getType().name().toString());
+		NamespacedKey key = new NamespacedKey(plugin, "compressed_cobblestone");
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
-		r.shape("aaa", "a a", "aaa");
+		r.shape("aaa", "aaa", "aaa");
 		r.setIngredient('a', Material.COBBLESTONE);
 
 		Bukkit.addRecipe(r);

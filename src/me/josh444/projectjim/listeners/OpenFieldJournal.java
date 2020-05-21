@@ -28,5 +28,6 @@ public class OpenFieldJournal implements Listener{
 			fieldJournal.openInventory(p);
 		}
 		
+		
 	}
 }

@@ -13,4 +13,7 @@ public class CustomItem {
 	
 	//Compressed Items
 	public static final ItemStack COMPRESSED_COBBLESTONE = Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.YELLOW + "Compressed Cobblestone");
+	public static final ItemStack DOUBLE_COMPRESSED_COBBLESTONE = Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.BLUE + "Double Compressed Cobblestone");
+	public static final ItemStack TRIPLE_COMPRESSED_COBBLESTONE = Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.LIGHT_PURPLE + "Triple Compressed Cobblestone");
+
 }

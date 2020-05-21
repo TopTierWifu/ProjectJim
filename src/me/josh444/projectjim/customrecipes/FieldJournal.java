@@ -18,7 +18,7 @@ public class FieldJournal implements Listener{
 	public void addRecipe() {
 		
 		ItemStack item = CustomItem.FIELD_JOURNAL;
-		NamespacedKey key = new NamespacedKey(plugin, item.getType().name().toString());
+		NamespacedKey key = new NamespacedKey(plugin, "field_journal");
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
 		r.shape("dac", "beb", "cad");
