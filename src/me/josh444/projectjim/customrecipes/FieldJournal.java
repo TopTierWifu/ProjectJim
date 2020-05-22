@@ -9,7 +9,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.CustomItem;
+import me.josh444.projectjim.customitems.JimItem;
 
 public class FieldJournal implements Listener{
 	
@@ -17,8 +17,10 @@ public class FieldJournal implements Listener{
 
 	public void addRecipe() {
 		
-		ItemStack item = CustomItem.FIELD_JOURNAL;
-		NamespacedKey key = new NamespacedKey(plugin, "field_journal");
+		JimItem jim = JimItem.FIELD_JOURNAL;
+		
+		ItemStack item = jim.item;
+		NamespacedKey key = new NamespacedKey(plugin, jim.key);
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
 		r.shape("dac", "beb", "cad");

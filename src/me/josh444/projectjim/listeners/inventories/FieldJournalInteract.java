@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.custominventories.ResearchTopics;
-import me.josh444.projectjim.customitems.CustomItem;
+import me.josh444.projectjim.customitems.JimItem;
 
 public class FieldJournalInteract implements Listener{
 	
@@ -31,7 +31,7 @@ public class FieldJournalInteract implements Listener{
 			return;
 		}
 		
-		if (inventoryName.equals(ChatColor.stripColor(CustomItem.FIELD_JOURNAL.getItemMeta().getDisplayName()))) {
+		if (inventoryName.equals(ChatColor.stripColor(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName()))) {
 			
 			if (item.getType().equals(Material.WRITABLE_BOOK)) {
 				e.setCancelled(true);

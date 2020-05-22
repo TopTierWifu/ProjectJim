@@ -11,6 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
+import me.josh444.projectjim.customitems.JimItem;
 
 public class PlayerSetup implements Listener{
 
@@ -39,10 +40,10 @@ public class PlayerSetup implements Listener{
 			      ex.printStackTrace();			
 			}
 		
-		p.discoverRecipe(new NamespacedKey(plugin, "field_journal"));
-		p.discoverRecipe(new NamespacedKey(plugin, "compressed_cobblestone"));
-		p.discoverRecipe(new NamespacedKey(plugin, "double_compressed_cobblestone"));
-		p.discoverRecipe(new NamespacedKey(plugin, "triple_compressed_cobblestone"));
+		p.discoverRecipe(new NamespacedKey(plugin, JimItem.FIELD_JOURNAL.key));
+		p.discoverRecipe(new NamespacedKey(plugin, JimItem.COMPRESSED_COBBLESTONE.key));
+		p.discoverRecipe(new NamespacedKey(plugin, JimItem.DOUBLE_COMPRESSED_COBBLESTONE.key));
+		p.discoverRecipe(new NamespacedKey(plugin, JimItem.TRIPLE_COMPRESSED_COBBLESTONE.key));
 		
 		
 	}

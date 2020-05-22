@@ -9,7 +9,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.CustomItem;
+import me.josh444.projectjim.customitems.JimItem;
 
 public class DoubleCompressedCobblestone implements Listener{
 	
@@ -17,12 +17,14 @@ public class DoubleCompressedCobblestone implements Listener{
 
 	public void addRecipe() {
 		
-		ItemStack item = CustomItem.DOUBLE_COMPRESSED_COBBLESTONE;
-		NamespacedKey key = new NamespacedKey(plugin, "double_compressed_cobblestone");
+		JimItem jim = JimItem.DOUBLE_COMPRESSED_COBBLESTONE;
+		
+		ItemStack item = jim.item;
+		NamespacedKey key = new NamespacedKey(plugin, jim.key);
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
 		@SuppressWarnings("deprecation")
-		RecipeChoice c = new RecipeChoice.ExactChoice(CustomItem.COMPRESSED_COBBLESTONE);
+		RecipeChoice c = new RecipeChoice.ExactChoice(JimItem.COMPRESSED_COBBLESTONE.item);
 		
 		r.shape("aaa", "aaa", "aaa");
 		r.setIngredient('a', c);
