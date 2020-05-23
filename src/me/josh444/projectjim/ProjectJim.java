@@ -13,6 +13,7 @@ import me.josh444.projectjim.customrecipes.compressed.cobblestone.TripleCompress
 import me.josh444.projectjim.listeners.OpenFieldJournal;
 import me.josh444.projectjim.listeners.PlayerSetup;
 import me.josh444.projectjim.listeners.inventories.FieldJournalInteract;
+import me.josh444.projectjim.listeners.inventories.ResearchTopicInteract;
 
 public class ProjectJim extends JavaPlugin{
 	
@@ -52,6 +53,7 @@ public class ProjectJim extends JavaPlugin{
 		new FieldJournalInteract(this);
 		
 		//Topic unlock
+		new ResearchTopicInteract(this);
 	}
 	
 	public void setupConfig() {

@@ -32,12 +32,11 @@ public class TopicPaper {
 	}
 	
 	public static ItemStack make(TopicPaper paperData) {
-		
 		ItemStack paper = Item.make(Material.PAPER, 1, paperData.name, paperData.costList);
-		
 		return paper;
 	}
 	
 	public static final TopicPaper COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.COMPRESSED_COBBLESTONE, Item.make(Material.COBBLESTONE, 128));
-	
+	public static final TopicPaper DOUBLE_COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.DOUBLE_COMPRESSED_COBBLESTONE, Item.setAmount(JimItem.COMPRESSED_COBBLESTONE.item, 128));
+
 }
