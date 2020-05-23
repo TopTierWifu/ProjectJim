@@ -54,12 +54,12 @@ public class ResearchTopicInteract implements Listener{
 								
 								String name = (paper.cost[i].hasItemMeta()) ?  paper.cost[i].getItemMeta().getDisplayName() : Word.toTitleCase(paper.cost[i].getType().name());
 
-								
 								if(p.getInventory().containsAtLeast(paper.cost[i], paper.cost[i].getAmount())) {
 									price++;
 								} else {
 									p.sendMessage(ChatColor.RED + "You do not have " + paper.cost[i].getAmount() + " " + name);
 								}
+									
 							}
 							
 							if(paper.cost.length == price) {
