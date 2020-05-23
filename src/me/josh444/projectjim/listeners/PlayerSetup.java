@@ -41,10 +41,12 @@ public class PlayerSetup implements Listener{
 			}
 		
 		p.discoverRecipe(new NamespacedKey(plugin, JimItem.FIELD_JOURNAL.key));
-		p.discoverRecipe(new NamespacedKey(plugin, JimItem.COMPRESSED_COBBLESTONE.key));
-		p.discoverRecipe(new NamespacedKey(plugin, JimItem.DOUBLE_COMPRESSED_COBBLESTONE.key));
-		p.discoverRecipe(new NamespacedKey(plugin, JimItem.TRIPLE_COMPRESSED_COBBLESTONE.key));
 		
+		
+		//This is for testing remember to remove later
+		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.COMPRESSED_COBBLESTONE.key));
+		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.DOUBLE_COMPRESSED_COBBLESTONE.key));
+		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.TRIPLE_COMPRESSED_COBBLESTONE.key));
 		
 	}
 }

@@ -4,18 +4,23 @@ import java.lang.reflect.Field;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.utils.Word;
 
 public class ResearchTopicInteract implements Listener{
 
+	private JavaPlugin plugin = ProjectJim.getPlugin(ProjectJim.class);
+	
 	public ResearchTopicInteract(ProjectJim plugin) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
@@ -35,20 +40,36 @@ public class ResearchTopicInteract implements Listener{
 			
 			if (item.getType().equals(Material.PAPER)) {
 				e.setCancelled(true);
-				
-				//TopicPaper paper = null;
-				
-				String topicPapers = "class me.josh444.projectjim.customitems.TopicPaper";
-				
+												
 				for(Field field : TopicPaper.class.getDeclaredFields()) {
-					if(field.getType().toString().equals(topicPapers)) {
-						Field f = TopicPaper.class.getDeclaredField(field.getName());
-						TopicPaper t = (TopicPaper) field.get(f);
+					if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
 						
-						if(item.getItemMeta().getDisplayName().equals(t.name)) {
+						TopicPaper paper = (TopicPaper) field.get(field.getName());
 						
-							p.getInventory().addItem(TopicPaper.make(t));
+						if(item.getItemMeta().getDisplayName().equals(paper.name)) {
 						
+							int price = 0;
+							
+							for(int i = 0; i < paper.cost.length; i++) {
+								
+								String name = (paper.cost[i].hasItemMeta()) ?  paper.cost[i].getItemMeta().getDisplayName() : Word.toTitleCase(paper.cost[i].getType().name());
+
+								
+								if(p.getInventory().containsAtLeast(paper.cost[i], paper.cost[i].getAmount())) {
+									price++;
+								} else {
+									p.sendMessage(ChatColor.RED + "You do not have " + paper.cost[i].getAmount() + " " + name);
+								}
+							}
+							
+							if(paper.cost.length == price) {
+								p.getInventory().removeItem(paper.cost);
+								p.discoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
+								p.sendMessage(ChatColor.GREEN + "Unlocked " + paper.unlock.item.getItemMeta().getDisplayName());
+								e.getClickedInventory().setItem(e.getSlot(), null);
+								
+								//To-Do make it so it changes data on the player file too
+							}
 						}
 					}
 				}
