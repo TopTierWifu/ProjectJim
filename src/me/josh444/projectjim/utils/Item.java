@@ -2,6 +2,7 @@ package me.josh444.projectjim.utils;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Material;
@@ -12,6 +13,8 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+
+import net.md_5.bungee.api.ChatColor;
 
 public class Item {
 
@@ -29,8 +32,19 @@ public class Item {
 		ItemStack item = new ItemStack(material,amount);
 		ItemMeta meta = item.getItemMeta();
 		
-		meta.setDisplayName(name);
+		meta.setDisplayName(ChatColor.WHITE + name);
 		meta.setLore(Arrays.asList(lore));
+		
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public static ItemStack make(Material material, int amount, String name, List<String>lore) {
+		ItemStack item = new ItemStack(material,amount);
+		ItemMeta meta = item.getItemMeta();
+		
+		meta.setDisplayName(ChatColor.WHITE + name);
+		meta.setLore(lore);
 		
 		item.setItemMeta(meta);
 		return item;
@@ -90,6 +104,11 @@ public class Item {
 		skull.setItemMeta(meta);
 		
 		return skull;
+	}
+	
+	public static ItemStack setAmount(ItemStack item, int amount) {
+		item.setAmount(amount);
+		return item;
 	}
 	
 }

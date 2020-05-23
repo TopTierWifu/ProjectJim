@@ -20,8 +20,8 @@ public class JimItem {
 	public static final JimItem FIELD_JOURNAL = new JimItem(Item.make(Material.WRITTEN_BOOK, 1, ChatColor.DARK_PURPLE + "Field Journal"), "field_journal");
 	
 	//Compressed items
-	public static final JimItem COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.YELLOW + "Compressed Cobblestone"), "compressed_cobblestone");
-	public static final JimItem DOUBLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.BLUE + "Double Compressed Cobblestone"), "double_compressed_cobblestone");
-	public static final JimItem TRIPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.LIGHT_PURPLE + "Triple Compressed Cobblestone"), "triple_compressed_cobblestone");
+	public static final JimItem COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.WHITE + "Compressed Cobblestone", ChatColor.GRAY + "9 Cobblestone"), "compressed_cobblestone");
+	public static final JimItem DOUBLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.GREEN + "Double Compressed Cobblestone", ChatColor.GRAY + "81 Cobblestone"), "double_compressed_cobblestone");
+	public static final JimItem TRIPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.BLUE + "Triple Compressed Cobblestone", ChatColor.GRAY + "729 Cobblestone"), "triple_compressed_cobblestone");
 
 }
