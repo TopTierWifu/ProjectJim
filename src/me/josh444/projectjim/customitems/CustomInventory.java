@@ -14,6 +14,5 @@ public class CustomInventory {
 	public static final ItemStack RESEARCH_TOPICS = Item.make(Material.WRITABLE_BOOK, 1, ChatColor.LIGHT_PURPLE + "Research Topics");
 
 	public static final ItemStack PORTABLE_CRAFTING_TABLE = Item.make(Material.CRAFTING_TABLE, 1, ChatColor.GREEN + "Portable Crafting Table");
-	public static final ItemStack PORTABLE_ENCHANTING_TABLE = Item.make(Material.ENCHANTING_TABLE, 1, ChatColor.GREEN + "Portable Enchanting Table");
 
 }
