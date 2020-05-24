@@ -37,6 +37,7 @@ public class TopicPaper {
 	}
 	
 	public static final TopicPaper COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.COMPRESSED_COBBLESTONE, Item.make(Material.COBBLESTONE, 128));
-	public static final TopicPaper DOUBLE_COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.DOUBLE_COMPRESSED_COBBLESTONE, Item.setAmount(JimItem.COMPRESSED_COBBLESTONE.item, 128));
+	public static final TopicPaper DOUBLE_COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.DOUBLE_COMPRESSED_COBBLESTONE, Item.setAmount(JimItem.COMPRESSED_COBBLESTONE.item, 64));
+	public static final TopicPaper TRIPLE_COMPRESSED_COBBLESTONE = new TopicPaper(JimItem.TRIPLE_COMPRESSED_COBBLESTONE, Item.setAmount(JimItem.DOUBLE_COMPRESSED_COBBLESTONE.item, 32));
 
 }

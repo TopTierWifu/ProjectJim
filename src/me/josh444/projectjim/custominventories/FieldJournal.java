@@ -25,16 +25,14 @@ public class FieldJournal implements Listener {
 		ItemStack g2 = CustomInventory.NOT_UNLOCKED;
 		
 		ItemStack ci = CustomInventory.CRAFTING_INDEX;
-		ItemStack rm = CustomInventory.RESEARCH_MATERIALS;
 		ItemStack ps = Item.skull(p, 1, ChatColor.YELLOW + p.getDisplayName() + "'s Stats", attributes);
-		ItemStack cd = CustomInventory.COLLECTED_DATA;
 		ItemStack rt = CustomInventory.RESEARCH_TOPICS;
 		
 		Inventory i = plugin.getServer().createInventory(null, 54, ChatColor.stripColor(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName()));
 		
 		ItemStack[] gui = new ItemStack[] {
 				gl,gl,gl,gl,gl,gl,gl,gl,gl,
-				gl,gl,ci,rm,ps,cd,rt,gl,gl,
+				gl,gl,ci,gl,ps,gl,rt,gl,gl,
 				gl,gl,gl,gl,gl,gl,gl,gl,gl,
 				gl,gl,g2,g2,g2,g2,g2,gl,gl,
                 gl,gl,gl,g2,g2,g2,gl,gl,gl,

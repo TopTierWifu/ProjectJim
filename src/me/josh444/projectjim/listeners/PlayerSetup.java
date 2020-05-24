@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.utils.PlayerData;
 
 public class PlayerSetup implements Listener{
 
@@ -26,6 +28,7 @@ public class PlayerSetup implements Listener{
 		
 		Player p = e.getPlayer();
 		String uuid = p.getUniqueId().toString();
+		FileConfiguration config = PlayerData.getConfig(p);
 		File file = new File("plugins/ProjectJim/PlayerData/" + uuid + ".yml");
 		
 		try {
@@ -47,6 +50,9 @@ public class PlayerSetup implements Listener{
 		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.COMPRESSED_COBBLESTONE.key));
 		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.DOUBLE_COMPRESSED_COBBLESTONE.key));
 		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.TRIPLE_COMPRESSED_COBBLESTONE.key));
+		
+		config.set("unlocked", null);
+		PlayerData.saveConfig(config, file);
 		
 	}
 }

@@ -21,7 +21,7 @@ public class FieldJournalInteract implements Listener{
     }
 	
 	@EventHandler
-	public void fieldJournalClick(InventoryClickEvent e) {
+	public void fieldJournalClick(InventoryClickEvent e) throws IllegalArgumentException, IllegalAccessException {
 		
 		Player p = (Player) e.getWhoClicked();
 		String inventoryName = e.getView().getTitle();

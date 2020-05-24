@@ -1,10 +1,12 @@
 package me.josh444.projectjim.listeners.inventories;
 
+import java.io.File;
 import java.lang.reflect.Field;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.utils.PlayerData;
 import me.josh444.projectjim.utils.Word;
 
 public class ResearchTopicInteract implements Listener{
@@ -63,12 +66,17 @@ public class ResearchTopicInteract implements Listener{
 							}
 							
 							if(paper.cost.length == price) {
+								
+								FileConfiguration config = PlayerData.getConfig(p);
+								File file = PlayerData.getFile(p);
+								
 								p.getInventory().removeItem(paper.cost);
 								p.discoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
 								p.sendMessage(ChatColor.GREEN + "Unlocked " + paper.unlock.item.getItemMeta().getDisplayName());
 								e.getClickedInventory().setItem(e.getSlot(), null);
 								
-								//To-Do make it so it changes data on the player file too
+								config.set("unlocked." + paper.unlock.key, 1);
+								PlayerData.saveConfig(config, file);
 							}
 						}
 					}

@@ -1,6 +1,9 @@
 package me.josh444.projectjim.custominventories;
 
+import java.lang.reflect.Field;
+
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -10,12 +13,16 @@ import org.bukkit.plugin.Plugin;
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.utils.PlayerData;
 
 public class ResearchTopics implements Listener {
 	
 	private Plugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 		
-	public void openInventory(Player p){		
+	public void openInventory(Player p) throws IllegalArgumentException, IllegalAccessException{		
+		
+		FileConfiguration config = PlayerData.getConfig(p);
+		
 		
 		ItemStack n = null;
 		ItemStack g = CustomInventory.BORDER;		
@@ -33,11 +40,19 @@ public class ResearchTopics implements Listener {
 		
 		i.setContents(gui);
 		
-		ItemStack c = TopicPaper.make(TopicPaper.COMPRESSED_COBBLESTONE);
-		ItemStack d = TopicPaper.make(TopicPaper.DOUBLE_COMPRESSED_COBBLESTONE);
-		
-		i.addItem(c);
-		i.addItem(d);
+		for(Field field : TopicPaper.class.getDeclaredFields()) {
+			if(!(i.firstEmpty() == -1)) {
+				if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
+				
+					TopicPaper paper = (TopicPaper) field.get(field.getName());
+				
+					if(!config.contains("unlocked." + paper.unlock.key)) {
+						ItemStack topicPaper = TopicPaper.make(paper);
+						i.addItem(topicPaper);
+					}
+				}
+			}
+		}
 		
 		p.openInventory(i);
 	}
