@@ -23,7 +23,6 @@ public class ResearchTopics implements Listener {
 		
 		FileConfiguration config = PlayerData.getConfig(p);
 		
-		
 		ItemStack n = null;
 		ItemStack g = CustomInventory.BORDER;		
 		

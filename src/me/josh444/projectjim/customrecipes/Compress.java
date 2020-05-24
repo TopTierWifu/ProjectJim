@@ -1,4 +1,4 @@
-package me.josh444.projectjim.customrecipes.compressed.cobblestone;
+package me.josh444.projectjim.customrecipes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -11,22 +11,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.JimItem;
 
-public class TripleCompressedCobblestone implements Listener{
+public class Compress  implements Listener{
 	
 	private JavaPlugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 
-	public void addRecipe() {
+	public void addCompressRecipe(JimItem result, ItemStack input) {
 		
-		JimItem jim = JimItem.TRIPLE_COMPRESSED_COBBLESTONE;
+		JimItem jim = result;
 		
 		ItemStack item = jim.item;
 		NamespacedKey key = new NamespacedKey(plugin, jim.key);
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
 		@SuppressWarnings("deprecation")
-		RecipeChoice c = new RecipeChoice.ExactChoice(JimItem.DOUBLE_COMPRESSED_COBBLESTONE.item);
+		RecipeChoice c = new RecipeChoice.ExactChoice(input);
 		
-		r.shape("aaa", "aaa", "aaa");
+		r.shape("aaa", "a  ", "   ");
 		r.setIngredient('a', c);
 
 		Bukkit.addRecipe(r);

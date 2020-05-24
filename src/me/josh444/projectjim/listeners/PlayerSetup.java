@@ -2,6 +2,7 @@ package me.josh444.projectjim.listeners;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,6 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.customitems.TopicPaper.TopicPaperType;
 import me.josh444.projectjim.utils.PlayerData;
 
 public class PlayerSetup implements Listener{
@@ -24,7 +27,7 @@ public class PlayerSetup implements Listener{
     }
 	
 	@EventHandler
-	public void setupPlayer(PlayerJoinEvent e) {
+	public void setupPlayer(PlayerJoinEvent e) throws IllegalArgumentException, IllegalAccessException {
 		
 		Player p = e.getPlayer();
 		String uuid = p.getUniqueId().toString();
@@ -47,9 +50,17 @@ public class PlayerSetup implements Listener{
 		
 		
 		//This is for testing remember to remove later
-		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.COMPRESSED_COBBLESTONE.key));
-		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.DOUBLE_COMPRESSED_COBBLESTONE.key));
-		p.undiscoverRecipe(new NamespacedKey(plugin, JimItem.TRIPLE_COMPRESSED_COBBLESTONE.key));
+		for(Field field : TopicPaper.class.getDeclaredFields()) {
+			if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
+				
+				TopicPaper paper = (TopicPaper) field.get(field.getName());
+				
+				if(paper.type.equals(TopicPaperType.RECIPE)) {
+					p.undiscoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
+				}
+				
+			}
+		}
 		
 		config.set("unlocked", null);
 		PlayerData.saveConfig(config, file);

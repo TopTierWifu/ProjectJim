@@ -26,7 +26,7 @@ public class FieldJournalInteract implements Listener{
 		Player p = (Player) e.getWhoClicked();
 		String inventoryName = e.getView().getTitle();
 		ItemStack item = e.getCurrentItem();
-
+		
 		if (e.getClickedInventory() == null) {
 			return;
 		}
@@ -36,6 +36,12 @@ public class FieldJournalInteract implements Listener{
 			if (item.getType().equals(Material.WRITABLE_BOOK)) {
 				e.setCancelled(true);
 				researchTopics.openInventory(p);
+				return;
+			}
+			
+			if (item.getType().equals(Material.CRAFTING_TABLE)) {
+				e.setCancelled(true);
+				p.openWorkbench(p.getLocation(), true);
 				return;
 			}
 			

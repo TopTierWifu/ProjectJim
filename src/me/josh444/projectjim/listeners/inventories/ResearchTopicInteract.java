@@ -17,6 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.customitems.TopicPaper.TopicPaperType;
 import me.josh444.projectjim.utils.PlayerData;
 import me.josh444.projectjim.utils.Word;
 
@@ -70,13 +71,19 @@ public class ResearchTopicInteract implements Listener{
 								FileConfiguration config = PlayerData.getConfig(p);
 								File file = PlayerData.getFile(p);
 								
-								p.getInventory().removeItem(paper.cost);
-								p.discoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
+								p.getInventory().removeItem(paper.cost);			
 								p.sendMessage(ChatColor.GREEN + "Unlocked " + paper.unlock.item.getItemMeta().getDisplayName());
 								e.getClickedInventory().setItem(e.getSlot(), null);
 								
 								config.set("unlocked." + paper.unlock.key, 1);
 								PlayerData.saveConfig(config, file);
+								
+								if(paper.type.equals(TopicPaperType.RECIPE)) {
+									p.discoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
+								} else if(paper.type.equals(TopicPaperType.PORTABLE)) {
+									
+								}
+								
 							}
 						}
 					}
