@@ -27,10 +27,11 @@ public class Mana {
 	public static boolean testLevel(Player p, int value) {
 		
 		int lvl = p.getLevel();		
-		int difference = Mana.getXPfromLevel(lvl) - Mana.getXPfromLevel(lvl-value);;
 		
 		if(lvl >= value) {
-			p.giveExp(-difference);
+			for(int i = 0; i < value; i++) {
+				p.giveExp(-(Mana.getXPfromLevel(p.getLevel()) - Mana.getXPfromLevel(p.getLevel() - 1)));
+			}
 			return true;
 		} else if(lvl == 0) {
 			p.sendMessage(prefix + ChatColor.RED + "You have no levels");
