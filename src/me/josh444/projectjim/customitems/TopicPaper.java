@@ -76,6 +76,13 @@ public class TopicPaper {
 	public static final TopicPaper DOUBLE_COMPRESSED_DIAMOND = new TopicPaper(JimItem.DOUBLE_COMPRESSED_DIAMOND, TopicPaperType.RECIPE, Item.setAmount(JimItem.COMPRESSED_DIAMOND.item, 16));
 	public static final TopicPaper TRIPLE_COMPRESSED_DIAMOND = new TopicPaper(JimItem.TRIPLE_COMPRESSED_DIAMOND, TopicPaperType.RECIPE, Item.setAmount(JimItem.DOUBLE_COMPRESSED_DIAMOND.item, 8));
 	
+	public static final TopicPaper COMPRESSED_OBSIDIAN = new TopicPaper(JimItem.COMPRESSED_OBSIDIAN, TopicPaperType.RECIPE, Item.make(Material.OBSIDIAN, 64));
+	public static final TopicPaper DOUBLE_COMPRESSED_OBSIDIAN = new TopicPaper(JimItem.DOUBLE_COMPRESSED_OBSIDIAN, TopicPaperType.RECIPE, Item.setAmount(JimItem.COMPRESSED_OBSIDIAN.item, 32));
+	public static final TopicPaper TRIPLE_COMPRESSED_OBSIDIAN = new TopicPaper(JimItem.TRIPLE_COMPRESSED_OBSIDIAN, TopicPaperType.RECIPE, Item.setAmount(JimItem.DOUBLE_COMPRESSED_OBSIDIAN.item, 16));
+	
+	
+	
 	public static final TopicPaper PORTABLE_CRAFTING_TABLE = new TopicPaper(JimItem.PORTABLE_CRAFTING_TABLE, TopicPaperType.PORTABLE, Item.make(Material.OAK_LOG, 128));
+	public static final TopicPaper PORTABLE_TRASH_CAN = new TopicPaper(JimItem.PORTABLE_TRASH_CAN, TopicPaperType.PORTABLE, Item.setAmount(JimItem.COMPRESSED_IRON.item, 8));
 
 }

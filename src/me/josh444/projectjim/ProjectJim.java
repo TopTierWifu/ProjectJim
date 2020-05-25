@@ -73,6 +73,10 @@ public class ProjectJim extends JavaPlugin{
 		compress.addCompressRecipe(JimItem.DOUBLE_COMPRESSED_DIAMOND, JimItem.COMPRESSED_DIAMOND.item);
 		compress.addCompressRecipe(JimItem.TRIPLE_COMPRESSED_DIAMOND, JimItem.DOUBLE_COMPRESSED_DIAMOND.item);
 
+		compress.addCompressRecipe(JimItem.COMPRESSED_OBSIDIAN, Item.make(Material.OBSIDIAN));
+		compress.addCompressRecipe(JimItem.DOUBLE_COMPRESSED_OBSIDIAN, JimItem.COMPRESSED_OBSIDIAN.item);
+		compress.addCompressRecipe(JimItem.TRIPLE_COMPRESSED_OBSIDIAN, JimItem.DOUBLE_COMPRESSED_OBSIDIAN.item);
+
 		FieldJournal fieldJournal = new FieldJournal(); fieldJournal.addRecipe();
 	
 	}

@@ -112,4 +112,10 @@ public class Item {
 		return item;
 	}
 	
+	public static ItemStack setLore(ItemStack item, String...lore) {
+		ItemMeta meta = item.getItemMeta();
+		meta.setLore(Arrays.asList(lore));
+		item.setItemMeta(meta);
+		return item;
+	}
 }

@@ -27,8 +27,9 @@ public class FieldJournal implements Listener {
 		
 		ItemStack gl = CustomInventory.BORDER;
 		ItemStack g2 = CustomInventory.NOT_UNLOCKED;
+		ItemStack cl = CustomInventory.CLOSE;
 		
-		ItemStack ci = CustomInventory.CRAFTING_INDEX;
+		ItemStack ci = CustomInventory.ITEM_INDEX;
 		ItemStack ps = Item.skull(p, 1, ChatColor.YELLOW + p.getDisplayName() + "'s Stats", attributes);
 		ItemStack rt = CustomInventory.RESEARCH_TOPICS;
 		
@@ -36,14 +37,18 @@ public class FieldJournal implements Listener {
 		
 		ItemStack[] gui = new ItemStack[] {
 				gl,gl,gl,gl,gl,gl,gl,gl,gl,
-				gl,g2,g2,g2,ps,rt,ci,gl,gl,
-				gl,gl,gl,gl,gl,gl,gl,gl,gl,
+				gl,g2,g2,gl,ps,gl,rt,ci,gl,
+				gl,gl,gl,gl,cl,gl,gl,gl,gl,
 		};
 		
 		i.setContents(gui);
 		
 		if(config.contains("unlocked." + JimItem.PORTABLE_CRAFTING_TABLE.key)) {
-			i.setItem(12, JimItem.PORTABLE_CRAFTING_TABLE.item);
+			i.setItem(11, JimItem.PORTABLE_CRAFTING_TABLE.item);
+		}
+		
+		if(config.contains("unlocked." + JimItem.PORTABLE_TRASH_CAN.key)) {
+			i.setItem(10, JimItem.PORTABLE_TRASH_CAN.item);
 		}
 		
 		p.openInventory(i);

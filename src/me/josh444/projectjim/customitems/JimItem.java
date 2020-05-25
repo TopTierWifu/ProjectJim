@@ -28,7 +28,6 @@ public class JimItem {
 	public static final JimItem DOUBLE_COMPRESSED_COAL = new JimItem(Item.skull(SkullTexture.COMPRESSED_COAL, 1, ChatColor.BLUE + "Double Compressed Coal", ChatColor.GRAY + "16 Coal"), "double_compressed_coal");
 	public static final JimItem TRIPLE_COMPRESSED_COAL = new JimItem(Item.skull(SkullTexture.COMPRESSED_COAL, 1, ChatColor.DARK_PURPLE + "Triple Compressed Coal", ChatColor.GRAY + "64 Coal"), "triple_compressed_coal");
 
-	
 	public static final JimItem COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.GREEN + "Compressed Iron", ChatColor.GRAY + "4 Iron"), "compressed_iron");
 	public static final JimItem DOUBLE_COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.BLUE + "Double Compressed Iron", ChatColor.GRAY + "16 Iron"), "double_compressed_iron");
 	public static final JimItem TRIPLE_COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.DARK_PURPLE + "Triple Compressed Iron", ChatColor.GRAY + "64 Iron"), "triple_compressed_iron");
@@ -53,7 +52,11 @@ public class JimItem {
 	public static final JimItem DOUBLE_COMPRESSED_DIAMOND = new JimItem(Item.skull(SkullTexture.COMPRESSED_DIAMOND, 1, ChatColor.DARK_PURPLE + "Double Compressed Diamond", ChatColor.GRAY + "16 Diamond"), "double_compressed_diamond");
 	public static final JimItem TRIPLE_COMPRESSED_DIAMOND = new JimItem(Item.skull(SkullTexture.COMPRESSED_DIAMOND, 1, ChatColor.GOLD + "Triple Compressed Diamond", ChatColor.GRAY + "64 Diamond"), "triple_compressed_diamond");
 
+	public static final JimItem COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.BLUE + "Compressed Obsidian", ChatColor.GRAY + "4 Obsidian"), "compressed_obsidian");
+	public static final JimItem DOUBLE_COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.DARK_PURPLE + "Double Compressed Obsidian", ChatColor.GRAY + "16 Obsidian"), "double_compressed_obsidian");
+	public static final JimItem TRIPLE_COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.GOLD + "Triple Compressed Obsidian", ChatColor.GRAY + "64 Obsidian"), "triple_compressed_obsidian");
+
 	//Portables in field journal
 	public static final JimItem PORTABLE_CRAFTING_TABLE = new JimItem(CustomInventory.PORTABLE_CRAFTING_TABLE, "portable_crafting_table");
-
+	public static final JimItem PORTABLE_TRASH_CAN = new JimItem(CustomInventory.PORTABLE_TRASH_CAN, "portable_trash_can");
 }

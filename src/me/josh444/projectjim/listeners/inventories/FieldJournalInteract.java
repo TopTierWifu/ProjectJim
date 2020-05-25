@@ -33,9 +33,15 @@ public class FieldJournalInteract implements Listener{
 		
 		if (inventoryName.equals(ChatColor.stripColor(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName()))) {
 			
+			if (item.getType().equals(Material.BARRIER)) {
+				e.setCancelled(true);
+				p.closeInventory();
+				return;
+			}
+			
 			if (item.getType().equals(Material.WRITABLE_BOOK)) {
 				e.setCancelled(true);
-				researchTopics.openInventory(p);
+				researchTopics.openInventory(p, 0);
 				return;
 			}
 			
