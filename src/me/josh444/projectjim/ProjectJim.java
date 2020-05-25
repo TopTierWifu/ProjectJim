@@ -12,7 +12,6 @@ import me.josh444.projectjim.customrecipes.Compress;
 import me.josh444.projectjim.customrecipes.FieldJournal;
 import me.josh444.projectjim.listeners.OpenFieldJournal;
 import me.josh444.projectjim.listeners.PlayerSetup;
-import me.josh444.projectjim.listeners.UnlockTopic;
 import me.josh444.projectjim.listeners.inventories.FieldJournalInteract;
 import me.josh444.projectjim.listeners.inventories.ResearchTopicInteract;
 import me.josh444.projectjim.utils.Item;
@@ -92,7 +91,7 @@ public class ProjectJim extends JavaPlugin{
 		new ResearchTopicInteract(this);
 		
 		//Test
-		new UnlockTopic(this);
+		//new UnlockTopic(this);
 	}
 	
 	public void setupConfig() {
@@ -104,7 +103,7 @@ public class ProjectJim extends JavaPlugin{
 		
 		if(file.mkdirs()) {
 			System.out.println("PlayerData folder created");
-		}else{
+		} else{
 	         System.out.println("PlayerData folder couldn't be created or already exists");
 	    }
 	}

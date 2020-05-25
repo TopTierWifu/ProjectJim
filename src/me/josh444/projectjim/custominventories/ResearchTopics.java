@@ -51,7 +51,7 @@ public class ResearchTopics implements Listener {
 				Field[] field = TopicPaper.class.getDeclaredFields();				
 				TopicPaper paper = (TopicPaper) field[j].get(field[j].getName());
 				
-				if(config.contains("inprogress." + paper.unlock.key)) {
+				if(!config.contains("unlocked." + paper.unlock.key)) {
 					ItemStack topicPaper = TopicPaper.make(paper);
 					i.addItem(topicPaper);
 				}

@@ -17,9 +17,9 @@ public class PlayerStatsItem {
 		String damage = ChatColor.DARK_RED + "✄ Damage " + p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue();
 		String attackSpeed = ChatColor.AQUA + "✦ Attack Speed " + p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).getValue();
 		String movementSpeed = ChatColor.WHITE + "✧ Speed " + (speed);
-		String luck = ChatColor.GREEN + "♣ Luck " + p.getAttribute(Attribute.GENERIC_LUCK).getValue();
+		String xp = ChatColor.LIGHT_PURPLE + "☀ XP " + p.getTotalExperience();
 		
-		String[] stats = new String[] {health, armor, armorToughness, knockbackResistance, damage, attackSpeed, movementSpeed, luck};
+		String[] stats = new String[] {health, armor, armorToughness, knockbackResistance, damage, attackSpeed, movementSpeed, xp};
 		
 		return stats;
 	}
