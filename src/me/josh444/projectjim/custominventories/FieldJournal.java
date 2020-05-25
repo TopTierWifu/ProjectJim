@@ -13,7 +13,7 @@ import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.JimItem;
 import me.josh444.projectjim.utils.Item;
 import me.josh444.projectjim.utils.PlayerData;
-import me.josh444.projectjim.utils.PlayerStats;
+import me.josh444.projectjim.utils.PlayerStatsItem;
 
 public class FieldJournal implements Listener {
 	
@@ -23,7 +23,7 @@ public class FieldJournal implements Listener {
 		
 		FileConfiguration config = PlayerData.getConfig(p);
 		
-		String[] attributes = PlayerStats.attributes(p);
+		String[] attributes = PlayerStatsItem.attributes(p);
 		
 		ItemStack gl = CustomInventory.BORDER;
 		ItemStack g2 = CustomInventory.NOT_UNLOCKED;

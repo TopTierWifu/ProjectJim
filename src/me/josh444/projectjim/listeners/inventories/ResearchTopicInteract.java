@@ -79,6 +79,7 @@ public class ResearchTopicInteract implements Listener{
 								p.sendMessage(ChatColor.GREEN + "Unlocked " + paper.unlock.item.getItemMeta().getDisplayName());
 								e.getClickedInventory().setItem(e.getSlot(), null);
 								
+								config.set("inprogress." + paper.unlock.key, null);
 								config.set("unlocked." + paper.unlock.key, 1);
 								PlayerData.saveConfig(config, file);
 								

@@ -30,9 +30,8 @@ public class PlayerSetup implements Listener{
 	public void setupPlayer(PlayerJoinEvent e) throws IllegalArgumentException, IllegalAccessException {
 		
 		Player p = e.getPlayer();
-		String uuid = p.getUniqueId().toString();
 		FileConfiguration config = PlayerData.getConfig(p);
-		File file = new File("plugins/ProjectJim/PlayerData/" + uuid + ".yml");
+		File file = PlayerData.getFile(p);
 		
 		try {
 			
@@ -63,6 +62,7 @@ public class PlayerSetup implements Listener{
 		}
 		
 		config.set("unlocked", null);
+		config.set("inprogress", null);
 		PlayerData.saveConfig(config, file);
 		
 	}
