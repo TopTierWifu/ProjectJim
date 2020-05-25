@@ -64,13 +64,13 @@ public class Item {
 		return skull;
 	}
 	
-	public static ItemStack skull(String base64EncodedString, int amount, String name, String...lore) {
+	public static ItemStack skull(String[] skullData, int amount, String name, String...lore) {
 		
 		final ItemStack skull = new ItemStack(Material.PLAYER_HEAD, amount);
         SkullMeta meta = (SkullMeta) skull.getItemMeta();
         assert meta != null;
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        profile.getProperties().put("textures", new Property("textures", base64EncodedString));
+        GameProfile profile = new GameProfile(UUID.fromString(skullData[1]), null);
+        profile.getProperties().put("textures", new Property("textures", skullData[0]));
         try {
             Method mtd = meta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
             mtd.setAccessible(true);
@@ -87,13 +87,13 @@ public class Item {
 		return skull;
 	}
 	
-	public static ItemStack skull(String base64EncodedString, int amount) {
+	public static ItemStack skull(String[] skullData, int amount) {
 		
 		final ItemStack skull = new ItemStack(Material.PLAYER_HEAD, amount);
         SkullMeta meta = (SkullMeta) skull.getItemMeta();
         assert meta != null;
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        profile.getProperties().put("textures", new Property("textures", base64EncodedString));
+        GameProfile profile = new GameProfile(UUID.fromString(skullData[1]), null);
+        profile.getProperties().put("textures", new Property("textures", skullData[0]));
         try {
             Method mtd = meta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
             mtd.setAccessible(true);

@@ -26,7 +26,7 @@ public class ResearchTopics implements Listener {
 		
 		ItemStack n = null;
 		ItemStack g = CustomInventory.BORDER;
-		ItemStack c = CustomInventory.CLOSE;
+		ItemStack b = CustomInventory.OAK_ARROW_DOWN;
 		
 		Boolean morePages = false;
 		
@@ -38,7 +38,7 @@ public class ResearchTopics implements Listener {
 				g,n,n,n,n,n,n,n,g,
 				g,n,n,n,n,n,n,n,g,
 				g,n,n,n,n,n,n,n,g,
-				g,g,g,g,c,g,g,g,g,
+				g,g,g,g,b,g,g,g,g,
 		};
 		
 		i.setContents(gui);

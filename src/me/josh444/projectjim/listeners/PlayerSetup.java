@@ -48,22 +48,21 @@ public class PlayerSetup implements Listener{
 		p.discoverRecipe(new NamespacedKey(plugin, JimItem.FIELD_JOURNAL.key));
 		
 		
-		//This is for testing remember to remove later
-		for(Field field : TopicPaper.class.getDeclaredFields()) {
+		
+		//This is for testing remember to remove later 
+		for(Field field : TopicPaper.class.getDeclaredFields()) { 
 			if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
-				
+		  
 				TopicPaper paper = (TopicPaper) field.get(field.getName());
-				
-				if(paper.type.equals(TopicPaperType.RECIPE)) {
-					p.undiscoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
-				}
-				
+		  
+				if(paper.type.equals(TopicPaperType.RECIPE)) { p.undiscoverRecipe(new
+						NamespacedKey(plugin, paper.unlock.key)); }
+		  
 			}
 		}
-		
-		config.set("unlocked", null);
-		config.set("inprogress", null);
+		  
+		config.set("unlocked", null); config.set("inprogress", null);
 		PlayerData.saveConfig(config, file);
-		
+		 
 	}
 }

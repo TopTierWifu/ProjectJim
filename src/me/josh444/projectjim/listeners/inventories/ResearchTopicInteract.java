@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
+import me.josh444.projectjim.custominventories.FieldJournal;
 import me.josh444.projectjim.custominventories.ResearchTopics;
 import me.josh444.projectjim.customitems.CustomInventory;
 import me.josh444.projectjim.customitems.TopicPaper;
@@ -27,6 +28,7 @@ public class ResearchTopicInteract implements Listener{
 	private JavaPlugin plugin = ProjectJim.getPlugin(ProjectJim.class);
 
 	ResearchTopics researchTopics = new ResearchTopics();
+	FieldJournal fieldJournal = new FieldJournal();
 	
 	public ResearchTopicInteract(ProjectJim plugin) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -97,13 +99,13 @@ public class ResearchTopicInteract implements Listener{
 				return;
 			}
 			
-			if (item.getType().equals(Material.BARRIER)) {
+			if (item.equals(CustomInventory.OAK_ARROW_DOWN)) {
 				e.setCancelled(true);
-				p.closeInventory();
+				fieldJournal.openInventory(p);
 				return;
 			}
 			
-			if (item.getType().equals(Material.PLAYER_HEAD)) {
+			if (item.equals(CustomInventory.OAK_ARROW_LEFT) | item.equals(CustomInventory.OAK_ARROW_RIGHT)) {
 				e.setCancelled(true);
 				int page = Integer.parseInt(item.getItemMeta().getLore().toArray()[0].toString().substring(7)) - 1;
 				researchTopics.openInventory(p, page);

@@ -32,6 +32,7 @@ public class OpenFieldJournal implements Listener{
 			if(itemName.equals(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName())) {
 				e.setCancelled(true);
 				fieldJournal.openInventory(p);
+				
 			}
 		}}
 		

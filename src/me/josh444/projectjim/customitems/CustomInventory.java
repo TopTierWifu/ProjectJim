@@ -19,5 +19,6 @@ public class CustomInventory {
 	
 	public static final ItemStack OAK_ARROW_LEFT = Item.skull(SkullTexture.OAK_ARROW_LEFT, 1, ChatColor.YELLOW + "Previous Page");
 	public static final ItemStack OAK_ARROW_RIGHT = Item.skull(SkullTexture.OAK_ARROW_RIGHT, 1, ChatColor.YELLOW + "Next Page");
-	
+	public static final ItemStack OAK_ARROW_DOWN = Item.skull(SkullTexture.OAK_ARROW_DOWN, 1, ChatColor.YELLOW + "Back to Field Journal");
+
 }
