@@ -12,6 +12,8 @@ public class Spells {
 	    Location loc = eye.add(eye.getDirection().multiply(1.2));
 	    Fireball fireball = (Fireball) loc.getWorld().spawnEntity(loc, EntityType.FIREBALL);
 	    fireball.setVelocity(loc.getDirection().normalize().multiply(2));
+	    fireball.setIsIncendiary(false);
+	    fireball.setYield((float) 1.5);
 	    fireball.setShooter(p);
 	}
 }
