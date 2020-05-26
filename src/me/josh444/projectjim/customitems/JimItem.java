@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.utils.Item;
+import me.josh444.projectjim.utils.Mana;
 
 public class JimItem {
 
@@ -59,4 +60,8 @@ public class JimItem {
 	//Portables in field journal
 	public static final JimItem PORTABLE_CRAFTING_TABLE = new JimItem(CustomInventory.PORTABLE_CRAFTING_TABLE, "portable_crafting_table");
 	public static final JimItem PORTABLE_TRASH_CAN = new JimItem(CustomInventory.PORTABLE_TRASH_CAN, "portable_trash_can");
+
+	//Magic items that use mana
+	public static final JimItem MAGIC_MISSILE_WAND = new JimItem(Item.make(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Magic Missile", ChatColor.GRAY + "Shoots a fireball at your enemies", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "magic_missile_wand");
+	
 }

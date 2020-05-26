@@ -10,6 +10,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.josh444.projectjim.customitems.JimItem;
 import me.josh444.projectjim.customrecipes.Compress;
 import me.josh444.projectjim.customrecipes.FieldJournal;
+import me.josh444.projectjim.customrecipes.MagicMissileWand;
+import me.josh444.projectjim.listeners.ManaItemUse;
 import me.josh444.projectjim.listeners.OpenFieldJournal;
 import me.josh444.projectjim.listeners.PlayerSetup;
 import me.josh444.projectjim.listeners.inventories.FieldJournalInteract;
@@ -17,6 +19,8 @@ import me.josh444.projectjim.listeners.inventories.ResearchTopicInteract;
 import me.josh444.projectjim.utils.Item;
 
 public class ProjectJim extends JavaPlugin{
+	
+	public static String prefix = ChatColor.GREEN + "Project Jim " + ChatColor.GRAY + "> " + ChatColor.WHITE;
 	
 	public void onEnable() {
 		
@@ -78,6 +82,7 @@ public class ProjectJim extends JavaPlugin{
 		compress.addCompressRecipe(JimItem.TRIPLE_COMPRESSED_OBSIDIAN, JimItem.DOUBLE_COMPRESSED_OBSIDIAN.item);
 
 		FieldJournal fieldJournal = new FieldJournal(); fieldJournal.addRecipe();
+		MagicMissileWand magicMissileWand = new MagicMissileWand(); magicMissileWand.addRecipe();
 	
 	}
 	
@@ -92,6 +97,7 @@ public class ProjectJim extends JavaPlugin{
 		
 		//Test
 		//new UnlockTopic(this);
+		new ManaItemUse(this);
 	}
 	
 	public void setupConfig() {

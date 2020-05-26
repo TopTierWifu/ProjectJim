@@ -23,7 +23,7 @@ public class OpenFieldJournal implements Listener{
 		
 		Player p = e.getPlayer();
 		
-		if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
+		if(e.getItem() != null && !e.getItem().getType().equals(Material.AIR)) {
 		
 		if(e.getItem().hasItemMeta()) {
 			

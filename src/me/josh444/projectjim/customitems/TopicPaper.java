@@ -85,4 +85,6 @@ public class TopicPaper {
 	public static final TopicPaper PORTABLE_CRAFTING_TABLE = new TopicPaper(JimItem.PORTABLE_CRAFTING_TABLE, TopicPaperType.PORTABLE, Item.make(Material.OAK_LOG, 128));
 	public static final TopicPaper PORTABLE_TRASH_CAN = new TopicPaper(JimItem.PORTABLE_TRASH_CAN, TopicPaperType.PORTABLE, Item.setAmount(JimItem.COMPRESSED_IRON.item, 8));
 
+	public static final TopicPaper MAGIC_MISSILE_WAND = new TopicPaper(JimItem.MAGIC_MISSILE_WAND, TopicPaperType.RECIPE, Item.make(Material.COBBLESTONE));
+	
 }
