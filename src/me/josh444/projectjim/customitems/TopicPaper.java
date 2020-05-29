@@ -86,5 +86,6 @@ public class TopicPaper {
 	public static final TopicPaper PORTABLE_TRASH_CAN = new TopicPaper(JimItem.PORTABLE_TRASH_CAN, TopicPaperType.PORTABLE, Item.setAmount(JimItem.COMPRESSED_IRON.item, 8));
 
 	public static final TopicPaper MAGIC_MISSILE_WAND = new TopicPaper(JimItem.MAGIC_MISSILE_WAND, TopicPaperType.RECIPE, Item.make(Material.COBBLESTONE));
-	
+	public static final TopicPaper ZAPP_WAND = new TopicPaper(JimItem.ZAPP_WAND, TopicPaperType.RECIPE, Item.make(Material.COBBLESTONE));
+
 }

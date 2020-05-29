@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.customitems.JimItem;
@@ -38,8 +39,8 @@ public class PlayerData {
 		}
 	}
 	
-	public static boolean hasUnlock(Player p, String itemName, JimItem jim) {
-		if(itemName.equals(jim.item.getItemMeta().getDisplayName())) {
+	public static boolean hasUnlock(Player p, ItemStack item, JimItem jim) {
+		if(item.equals(jim.item)) {
 			
 			FileConfiguration config = PlayerData.getConfig(p);
 			

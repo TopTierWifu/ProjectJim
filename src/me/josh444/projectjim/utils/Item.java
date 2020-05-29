@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -105,6 +107,19 @@ public class Item {
 		skull.setItemMeta(meta);
 		
 		return skull;
+	}
+	
+	public static ItemStack wand(Material material, int amount, String name, String...lore) {
+		ItemStack item = new ItemStack(material,amount);
+		ItemMeta meta = item.getItemMeta();
+		
+		meta.setDisplayName(ChatColor.WHITE + name);
+		meta.setLore(Arrays.asList(lore));
+		meta.addEnchant(Enchantment.LOYALTY, 1, false);
+		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		
+		item.setItemMeta(meta);
+		return item;
 	}
 	
 	public static ItemStack setAmount(ItemStack item, int amount) {

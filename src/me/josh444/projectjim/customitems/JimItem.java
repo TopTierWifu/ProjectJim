@@ -62,6 +62,7 @@ public class JimItem {
 	public static final JimItem PORTABLE_TRASH_CAN = new JimItem(CustomInventory.PORTABLE_TRASH_CAN, "portable_trash_can");
 
 	//Magic items that use mana
-	public static final JimItem MAGIC_MISSILE_WAND = new JimItem(Item.make(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Magic Missile", ChatColor.GRAY + "Shoots a fireball at your enemies", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "magic_missile_wand");
-	
+	public static final JimItem MAGIC_MISSILE_WAND = new JimItem(Item.wand(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Magic Missile", ChatColor.GRAY + "Shoots a fireball at your enemies", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "magic_missile_wand");
+	public static final JimItem ZAPP_WAND = new JimItem(Item.wand(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Zapp", ChatColor.GRAY + "Shoots laser in your line of sight", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "zap_wand");
+
 }

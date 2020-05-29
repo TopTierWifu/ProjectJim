@@ -11,6 +11,8 @@ import me.josh444.projectjim.customitems.JimItem;
 import me.josh444.projectjim.customrecipes.Compress;
 import me.josh444.projectjim.customrecipes.FieldJournal;
 import me.josh444.projectjim.customrecipes.MagicMissileWand;
+import me.josh444.projectjim.customrecipes.ZappWand;
+import me.josh444.projectjim.listeners.DeathMessages;
 import me.josh444.projectjim.listeners.ManaItemUse;
 import me.josh444.projectjim.listeners.OpenFieldJournal;
 import me.josh444.projectjim.listeners.PlayerSetup;
@@ -83,13 +85,15 @@ public class ProjectJim extends JavaPlugin{
 
 		FieldJournal fieldJournal = new FieldJournal(); fieldJournal.addRecipe();
 		MagicMissileWand magicMissileWand = new MagicMissileWand(); magicMissileWand.addRecipe();
-	
+		ZappWand zapWand = new ZappWand(); zapWand.addRecipe();
+		
 	}
 	
 	public void registerEvents() {
 		
 		new OpenFieldJournal(this);
 		new PlayerSetup(this);
+		new DeathMessages(this);
 		
 		//Custom GUI interact
 		new FieldJournalInteract(this);
