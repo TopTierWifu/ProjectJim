@@ -7,8 +7,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.custominventories.FieldJournal;
-import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.inventories.FieldJournal;
+import me.josh444.projectjim.items.JimItem;
 
 public class OpenFieldJournal implements Listener{
 	

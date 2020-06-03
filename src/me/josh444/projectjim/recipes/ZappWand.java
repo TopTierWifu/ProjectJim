@@ -1,4 +1,4 @@
-package me.josh444.projectjim.customrecipes;
+package me.josh444.projectjim.recipes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.items.JimItem;
 
 public class ZappWand implements Listener{
 	

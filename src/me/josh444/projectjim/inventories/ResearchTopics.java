@@ -1,4 +1,4 @@
-package me.josh444.projectjim.custominventories;
+package me.josh444.projectjim.inventories;
 
 import java.lang.reflect.Field;
 
@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.CustomInventory;
-import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.items.Items;
+import me.josh444.projectjim.items.TopicPaper;
 import me.josh444.projectjim.utils.Item;
 import me.josh444.projectjim.utils.PlayerData;
 
@@ -25,12 +25,12 @@ public class ResearchTopics implements Listener {
 		FileConfiguration config = PlayerData.getConfig(p);
 		
 		ItemStack n = null;
-		ItemStack g = CustomInventory.BORDER;
-		ItemStack b = CustomInventory.OAK_ARROW_DOWN;
+		ItemStack g = Items.BORDER;
+		ItemStack b = Items.OAK_ARROW_DOWN;
 		
 		Boolean morePages = false;
 		
-		Inventory i = plugin.getServer().createInventory(null, 54, ChatColor.stripColor(CustomInventory.RESEARCH_TOPICS.getItemMeta().getDisplayName()));
+		Inventory i = plugin.getServer().createInventory(null, 54, ChatColor.stripColor(Items.RESEARCH_TOPICS.getItemMeta().getDisplayName()));
 		
 		ItemStack[] gui = new ItemStack[] {
 				g,g,g,g,g,g,g,g,g,
@@ -62,11 +62,11 @@ public class ResearchTopics implements Listener {
 		}
 		
 		if(page > 0) {
-			i.setItem(47, Item.setLore(CustomInventory.OAK_ARROW_LEFT, ChatColor.GRAY + "Page " + (page)));
+			i.setItem(47, Item.setLore(Items.OAK_ARROW_LEFT, ChatColor.GRAY + "Page " + (page)));
 		}
 		
 		if(morePages) {
-			i.setItem(51, Item.setLore(CustomInventory.OAK_ARROW_RIGHT, ChatColor.GRAY + "Page " + (page+2)));
+			i.setItem(51, Item.setLore(Items.OAK_ARROW_RIGHT, ChatColor.GRAY + "Page " + (page+2)));
 		}
 		
 		

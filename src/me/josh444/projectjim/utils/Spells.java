@@ -7,6 +7,7 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Particle.DustOptions;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
@@ -45,18 +46,19 @@ public class Spells {
         for (double i = 0.5D; i < length; i += 0.5D) {
             origin.add(x * i, y * i, z * i);
 
-            if (BlockUtil.isSolid(origin.getBlock())) {
+            Block b = origin.getBlock();
+            
+            if (!b.isEmpty()||!b.isPassable()||!b.isLiquid()) {
                 origin.subtract(x * i, y * i, z * i);
             }
-            
             
             DustOptions dustOptions = new DustOptions(Color.fromRGB(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), 1);
             origin.getWorld().spawnParticle(Particle.REDSTONE, origin, 0, dustOptions);
             
             for(Entity e : origin.getWorld().getNearbyEntities(origin, 0.75, 0.75, 0.75, predicate)){
-            		if(e.getLocation().distance(origin)<= 1.5) {
-            			((LivingEntity) e).damage(15, p);
-            		}
+            	if(e.getLocation().distance(origin)<= 1.5) {
+            		((LivingEntity) e).damage(15, p);
+            	}
             }
             
             origin.subtract(x * i, y * i, z * i);

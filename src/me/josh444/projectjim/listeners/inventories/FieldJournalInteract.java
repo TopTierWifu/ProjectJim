@@ -9,8 +9,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.custominventories.ResearchTopics;
-import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.inventories.ResearchTopics;
+import me.josh444.projectjim.items.JimItem;
 
 public class FieldJournalInteract implements Listener{
 	

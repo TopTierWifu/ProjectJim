@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -16,8 +17,6 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-
-import net.md_5.bungee.api.ChatColor;
 
 public class Item {
 
@@ -115,11 +114,27 @@ public class Item {
 		
 		meta.setDisplayName(ChatColor.WHITE + name);
 		meta.setLore(Arrays.asList(lore));
-		meta.addEnchant(Enchantment.LOYALTY, 1, false);
+		meta.addEnchant(Enchantment.LOYALTY, 1, false); // find a way to make glint w/o enchant
 		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		
 		item.setItemMeta(meta);
 		return item;
+	}
+	
+	public static String getName(ItemStack item) {
+		if(item.hasItemMeta()) {
+			return item.getItemMeta().getDisplayName();
+		} else {
+			return item.getType().name();
+		}
+	}
+	
+	public static String getNameRaw(ItemStack item) {
+		if(item.hasItemMeta()) {
+			return item.getItemMeta().getDisplayName();
+		} else {
+			return Word.toTitleCase(item.getType().name());
+		}
 	}
 	
 	public static ItemStack setAmount(ItemStack item, int amount) {
@@ -132,5 +147,9 @@ public class Item {
 		meta.setLore(Arrays.asList(lore));
 		item.setItemMeta(meta);
 		return item;
+	}
+	
+	public static Boolean isNullOrAir(ItemStack item) {
+		return item == null || item.getType().equals(Material.AIR);
 	}
 }

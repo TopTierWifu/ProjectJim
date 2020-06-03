@@ -1,8 +1,8 @@
 package me.josh444.projectjim.utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import net.md_5.bungee.api.ChatColor;
 
 public class Mana {
 
@@ -30,7 +30,7 @@ public class Mana {
 		
 		if(lvl >= value) {
 			for(int i = 0; i < value; i++) {
-				p.giveExp(-(Mana.getXPfromLevel(p.getLevel()) - Mana.getXPfromLevel(p.getLevel() - 1)));
+				p.giveExp(-(Mana.getXPFromLevel(p.getLevel()) - Mana.getXPFromLevel(p.getLevel() - 1)));
 			}
 			return true;
 		} else if(lvl == 0) {
@@ -45,7 +45,7 @@ public class Mana {
 		}
 	}
 	
-	public static int getXPfromLevel(int level) {
+	public static int getXPFromLevel(int level) {
 		if(level >= 1 && level <= 16){
 			return (int)(Math.pow(level, 2) + 6 * level);
 		} else if(level >= 17 && level <= 31){

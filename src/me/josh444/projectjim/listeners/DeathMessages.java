@@ -5,7 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.items.JimItem;
 import me.josh444.projectjim.utils.Mana;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;

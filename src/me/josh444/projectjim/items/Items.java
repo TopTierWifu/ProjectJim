@@ -1,4 +1,4 @@
-package me.josh444.projectjim.customitems;
+package me.josh444.projectjim.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.utils.Item;
 
-public class CustomInventory {
+public class Items {
 
 	public static final ItemStack BORDER = Item.make(Material.BLACK_STAINED_GLASS_PANE, 1, " ");
 	public static final ItemStack CLOSE = Item.make(Material.BARRIER, 1, ChatColor.RED + "Close");

@@ -15,11 +15,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.custominventories.FieldJournal;
-import me.josh444.projectjim.custominventories.ResearchTopics;
-import me.josh444.projectjim.customitems.CustomInventory;
-import me.josh444.projectjim.customitems.TopicPaper;
-import me.josh444.projectjim.customitems.TopicPaper.TopicPaperType;
+import me.josh444.projectjim.inventories.FieldJournal;
+import me.josh444.projectjim.inventories.ResearchTopics;
+import me.josh444.projectjim.items.Items;
+import me.josh444.projectjim.items.TopicPaper;
+import me.josh444.projectjim.items.TopicPaper.TopicPaperType;
 import me.josh444.projectjim.utils.PlayerData;
 import me.josh444.projectjim.utils.Word;
 
@@ -46,7 +46,7 @@ public class ResearchTopicInteract implements Listener{
 			return;
 		}
 		
-		if (inventoryName.equals(ChatColor.stripColor(CustomInventory.RESEARCH_TOPICS.getItemMeta().getDisplayName()))) {
+		if (inventoryName.equals(ChatColor.stripColor(Items.RESEARCH_TOPICS.getItemMeta().getDisplayName()))) {
 			
 			if (item.getType().equals(Material.PAPER)) {
 				e.setCancelled(true);
@@ -99,13 +99,13 @@ public class ResearchTopicInteract implements Listener{
 				return;
 			}
 			
-			if (item.equals(CustomInventory.OAK_ARROW_DOWN)) {
+			if (item.equals(Items.OAK_ARROW_DOWN)) {
 				e.setCancelled(true);
 				fieldJournal.openInventory(p);
 				return;
 			}
 			
-			if (item.equals(CustomInventory.OAK_ARROW_LEFT) | item.equals(CustomInventory.OAK_ARROW_RIGHT)) {
+			if (item.equals(Items.OAK_ARROW_LEFT) | item.equals(Items.OAK_ARROW_RIGHT)) {
 				e.setCancelled(true);
 				int page = Integer.parseInt(item.getItemMeta().getLore().toArray()[0].toString().substring(7)) - 1;
 				researchTopics.openInventory(p, page);

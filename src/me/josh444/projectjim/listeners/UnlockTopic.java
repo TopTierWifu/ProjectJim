@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerStatisticIncrementEvent;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.TopicPaper;
+import me.josh444.projectjim.items.TopicPaper;
 import me.josh444.projectjim.utils.PlayerStatisticsTests;
 
 public class UnlockTopic implements Listener{

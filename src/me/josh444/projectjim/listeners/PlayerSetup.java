@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.JimItem;
-import me.josh444.projectjim.customitems.TopicPaper;
-import me.josh444.projectjim.customitems.TopicPaper.TopicPaperType;
+import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.items.TopicPaper;
+import me.josh444.projectjim.items.TopicPaper.TopicPaperType;
 import me.josh444.projectjim.utils.PlayerData;
 
 public class PlayerSetup implements Listener{
@@ -55,8 +55,9 @@ public class PlayerSetup implements Listener{
 		  
 				TopicPaper paper = (TopicPaper) field.get(field.getName());
 		  
-				if(paper.type.equals(TopicPaperType.RECIPE)) { p.undiscoverRecipe(new
-						NamespacedKey(plugin, paper.unlock.key)); }
+				if(paper.type.equals(TopicPaperType.RECIPE)) { 
+					p.undiscoverRecipe(new NamespacedKey(plugin, paper.unlock.key)); 
+				}
 		  
 			}
 		}

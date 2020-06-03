@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.customitems.JimItem;
+import me.josh444.projectjim.items.JimItem;
 import me.josh444.projectjim.utils.Mana;
 import me.josh444.projectjim.utils.PlayerData;
 import me.josh444.projectjim.utils.Spells;

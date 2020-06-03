@@ -1,4 +1,4 @@
-package me.josh444.projectjim.customitems;
+package me.josh444.projectjim.utils;
 
 public class SkullTexture {
 	

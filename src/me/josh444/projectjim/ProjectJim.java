@@ -7,17 +7,17 @@ import org.bukkit.GameRule;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.josh444.projectjim.customitems.JimItem;
-import me.josh444.projectjim.customrecipes.Compress;
-import me.josh444.projectjim.customrecipes.FieldJournal;
-import me.josh444.projectjim.customrecipes.MagicMissileWand;
-import me.josh444.projectjim.customrecipes.ZappWand;
+import me.josh444.projectjim.items.JimItem;
 import me.josh444.projectjim.listeners.DeathMessages;
 import me.josh444.projectjim.listeners.ManaItemUse;
 import me.josh444.projectjim.listeners.OpenFieldJournal;
 import me.josh444.projectjim.listeners.PlayerSetup;
 import me.josh444.projectjim.listeners.inventories.FieldJournalInteract;
 import me.josh444.projectjim.listeners.inventories.ResearchTopicInteract;
+import me.josh444.projectjim.recipes.Compress;
+import me.josh444.projectjim.recipes.FieldJournal;
+import me.josh444.projectjim.recipes.MagicMissileWand;
+import me.josh444.projectjim.recipes.ZappWand;
 import me.josh444.projectjim.utils.Item;
 
 public class ProjectJim extends JavaPlugin{
