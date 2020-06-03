@@ -14,9 +14,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.items.JimItem;
-import me.josh444.projectjim.items.TopicPaper;
-import me.josh444.projectjim.items.TopicPaper.TopicPaperType;
-import me.josh444.projectjim.utils.PlayerData;
+import me.josh444.projectjim.items.JimItem.JimType;
+import me.josh444.projectjim.items.JimItems;
+import me.josh444.projectjim.utils.User;
 
 public class PlayerSetup implements Listener{
 
@@ -30,8 +30,8 @@ public class PlayerSetup implements Listener{
 	public void setupPlayer(PlayerJoinEvent e) throws IllegalArgumentException, IllegalAccessException {
 		
 		Player p = e.getPlayer();
-		FileConfiguration config = PlayerData.getConfig(p);
-		File file = PlayerData.getFile(p);
+		FileConfiguration config = User.getConfig(p);
+		File file = User.getFile(p);
 		
 		try {
 			
@@ -45,25 +45,22 @@ public class PlayerSetup implements Listener{
 			      ex.printStackTrace();			
 			}
 		
-		p.discoverRecipe(new NamespacedKey(plugin, JimItem.FIELD_JOURNAL.key));
+		p.discoverRecipe(new NamespacedKey(plugin, JimItems.FIELD_JOURNAL.getKey()));
 		
 		
 		
 		//This is for testing remember to remove later 
-		for(Field field : TopicPaper.class.getDeclaredFields()) { 
-			if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
+		for(Field field : JimItems.class.getDeclaredFields()) { 
+			JimItem jim = (JimItem) field.get(field.getName());
 		  
-				TopicPaper paper = (TopicPaper) field.get(field.getName());
-		  
-				if(paper.type.equals(TopicPaperType.RECIPE)) { 
-					p.undiscoverRecipe(new NamespacedKey(plugin, paper.unlock.key)); 
-				}
-		  
+			if(jim.getType().equals(JimType.RECIPE)) { 
+				p.undiscoverRecipe(new NamespacedKey(plugin, jim.getKey())); 
 			}
+		  
 		}
 		  
-		config.set("unlocked", null); config.set("inprogress", null);
-		PlayerData.saveConfig(config, file);
+		config.set("unlocked", null);
+		User.saveConfig(config, file);
 		 
 	}
 }

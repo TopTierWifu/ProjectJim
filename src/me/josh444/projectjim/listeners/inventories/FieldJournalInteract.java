@@ -1,7 +1,5 @@
 package me.josh444.projectjim.listeners.inventories;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,8 +7,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
+import me.josh444.projectjim.inventories.FieldJournal;
+import me.josh444.projectjim.inventories.Items;
 import me.josh444.projectjim.inventories.ResearchTopics;
-import me.josh444.projectjim.items.JimItem;
 
 public class FieldJournalInteract implements Listener{
 	
@@ -23,29 +22,28 @@ public class FieldJournalInteract implements Listener{
 	@EventHandler
 	public void fieldJournalClick(InventoryClickEvent e) throws IllegalArgumentException, IllegalAccessException {
 		
-		Player p = (Player) e.getWhoClicked();
-		String inventoryName = e.getView().getTitle();
-		ItemStack item = e.getCurrentItem();
+		if (e.getClickedInventory() == null) {return;}
 		
-		if (e.getClickedInventory() == null) {
-			return;
-		}
+		String invName = e.getView().getTitle();
 		
-		if (inventoryName.equals(ChatColor.stripColor(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName()))) {
+		if (invName.equals(FieldJournal.name)) {
 			
-			if (item.getType().equals(Material.BARRIER)) {
+			Player p = (Player) e.getWhoClicked();
+			ItemStack item = e.getCurrentItem();
+			
+			if (item.equals(Items.CLOSE)) {
 				e.setCancelled(true);
 				p.closeInventory();
 				return;
 			}
 			
-			if (item.getType().equals(Material.WRITABLE_BOOK)) {
+			if (item.equals(Items.RESEARCH_TOPICS)) {
 				e.setCancelled(true);
 				researchTopics.openInventory(p, 0);
 				return;
 			}
 			
-			if (item.getType().equals(Material.CRAFTING_TABLE)) {
+			if (item.equals(Items.PORTABLE_CRAFTING_TABLE)) {
 				e.setCancelled(true);
 				p.openWorkbench(p.getLocation(), true);
 				return;

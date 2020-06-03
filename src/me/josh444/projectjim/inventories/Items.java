@@ -1,10 +1,11 @@
-package me.josh444.projectjim.items;
+package me.josh444.projectjim.inventories;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.utils.Item;
+import me.josh444.projectjim.utils.SkullTexture;
 
 public class Items {
 

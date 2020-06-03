@@ -15,7 +15,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-public class Spells {
+public class Spell {
 	
 	public static void useMagicMissile(Player p) {
 		Location eye = p.getEyeLocation();

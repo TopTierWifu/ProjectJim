@@ -16,12 +16,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.inventories.FieldJournal;
+import me.josh444.projectjim.inventories.Items;
 import me.josh444.projectjim.inventories.ResearchTopics;
-import me.josh444.projectjim.items.Items;
-import me.josh444.projectjim.items.TopicPaper;
-import me.josh444.projectjim.items.TopicPaper.TopicPaperType;
-import me.josh444.projectjim.utils.PlayerData;
-import me.josh444.projectjim.utils.Word;
+import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.items.JimItem.JimType;
+import me.josh444.projectjim.items.JimItems;
+import me.josh444.projectjim.utils.Item;
+import me.josh444.projectjim.utils.User;
 
 public class ResearchTopicInteract implements Listener{
 
@@ -36,64 +37,58 @@ public class ResearchTopicInteract implements Listener{
 	
 	@EventHandler
 	public void researchTopicClick(InventoryClickEvent e) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		
-		Player p = (Player) e.getWhoClicked();
-		String inventoryName = e.getView().getTitle();
-		ItemStack item = e.getCurrentItem();
-		
 
-		if (e.getClickedInventory() == null) {
-			return;
-		}
+		if (e.getClickedInventory() == null) {return;}
 		
-		if (inventoryName.equals(ChatColor.stripColor(Items.RESEARCH_TOPICS.getItemMeta().getDisplayName()))) {
+		String invName = e.getView().getTitle();
+
+		if (invName.equals(ResearchTopics.name)) {
+			
+			Player p = (Player) e.getWhoClicked();
+			ItemStack item = e.getCurrentItem();
 			
 			if (item.getType().equals(Material.PAPER)) {
 				e.setCancelled(true);
-												
-				for(Field field : TopicPaper.class.getDeclaredFields()) {
-					if(field.getType().toString().equals("class me.josh444.projectjim.customitems.TopicPaper")) {
+				
+				for(Field field : JimItems.class.getDeclaredFields()) {
 						
-						TopicPaper paper = (TopicPaper) field.get(field.getName());
+						JimItem jim = (JimItem) field.get(field.getName());
 						
-						if(item.getItemMeta().getDisplayName().equals(paper.name)) {
+						if(Item.getName(item).equals(jim.getName())) {
 						
 							int price = 0;
 							
-							for(int i = 0; i < paper.cost.length; i++) {
-								
-								String name = (paper.cost[i].hasItemMeta()) ?  paper.cost[i].getItemMeta().getDisplayName() : Word.toTitleCase(paper.cost[i].getType().name());
-
-								if(p.getInventory().containsAtLeast(paper.cost[i], paper.cost[i].getAmount())) {
+							for(int i = 0; i < jim.getCost().length; i++) {
+								ItemStack cost = jim.getCost()[i];
+								String name = Item.getName(cost);
+								if(p.getInventory().containsAtLeast(cost, cost.getAmount())) {
 									price++;
 								} else {
-									p.sendMessage(ChatColor.RED + "You do not have " + paper.cost[i].getAmount() + " " + name);
+									p.sendMessage(ChatColor.RED + "You do not have " + cost.getAmount() + " " + name);
 								}
 									
 							}
 							
-							if(paper.cost.length == price) {
+							if(jim.getCost().length == price) {
 								
-								FileConfiguration config = PlayerData.getConfig(p);
-								File file = PlayerData.getFile(p);
+								FileConfiguration config = User.getConfig(p);
+								File file = User.getFile(p);
 								
-								p.getInventory().removeItem(paper.cost);			
-								p.sendMessage(ChatColor.GREEN + "Unlocked " + paper.unlock.item.getItemMeta().getDisplayName());
+								p.getInventory().removeItem(jim.getCost());			
+								p.sendMessage(ChatColor.GREEN + "Unlocked " + jim.getName());
 								e.getClickedInventory().setItem(e.getSlot(), null);
 								
-								config.set("inprogress." + paper.unlock.key, null);
-								config.set("unlocked." + paper.unlock.key, 1);
-								PlayerData.saveConfig(config, file);
+								config.set("unlocked." + jim.getKey(), 1);
+								User.saveConfig(config, file);
 								
-								if(paper.type.equals(TopicPaperType.RECIPE)) {
-									p.discoverRecipe(new NamespacedKey(plugin, paper.unlock.key));
-								} else if(paper.type.equals(TopicPaperType.PORTABLE)) {
+								if(jim.getType().equals(JimType.RECIPE)) {
+									p.discoverRecipe(new NamespacedKey(plugin, jim.getKey()));
+								} else if(jim.getType().equals(JimType.PORTABLE)) {
 									
 								}
 								
 							}
 						}
-					}
 				}
 				
 				return;

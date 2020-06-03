@@ -1,18 +1,17 @@
 package me.josh444.projectjim.listeners;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.items.JimItems;
+import me.josh444.projectjim.utils.Item;
 import me.josh444.projectjim.utils.Mana;
-import me.josh444.projectjim.utils.PlayerData;
-import me.josh444.projectjim.utils.Spells;
+import me.josh444.projectjim.utils.Spell;
+import me.josh444.projectjim.utils.User;
 
 
 public class ManaItemUse implements Listener{
@@ -24,31 +23,27 @@ public class ManaItemUse implements Listener{
 	@EventHandler
 	public void onUse(PlayerInteractEvent e) {
 		
-		if(e.getAction().equals(Action.LEFT_CLICK_AIR)| e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
-		
+		if(User.isLeftClick(e)) {
+			
 			Player p = e.getPlayer();
 		
-			if(e.getItem() != null && !e.getItem().getType().equals(Material.AIR)) {
+			ItemStack item = e.getItem();
 			
-				if(e.getItem().hasItemMeta() && !e.getItem().equals(JimItem.FIELD_JOURNAL.item)) {
-				
-					ItemStack item = e.getItem();
+			if(!Item.isNullOrAir(item)) {				
 
-					if(PlayerData.hasUnlock(p, item, JimItem.MAGIC_MISSILE_WAND)) {
+					if(User.hasUnlock(p, JimItems.MAGIC_MISSILE_WAND, item)) {
 						if(Mana.testXP(p, 50)) {
-							Spells.useMagicMissile(p);
+							Spell.useMagicMissile(p);
 						}
 					}
 				
-					if(PlayerData.hasUnlock(p, item, JimItem.ZAPP_WAND)) {
+					if(User.hasUnlock(p, JimItems.ZAPP_WAND, item)) {
 						if(Mana.testXP(p, 50)) {
-							Spells.useZap(p);
+							Spell.useZap(p);
 						}
 					}
 					
 					//Add more ifs here
-				
-				}
 			}
 		}
 	}

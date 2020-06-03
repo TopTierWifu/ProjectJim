@@ -3,6 +3,7 @@ package me.josh444.projectjim.items;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
+import me.josh444.projectjim.inventories.Items;
 import me.josh444.projectjim.items.JimItem.JimCategory;
 import me.josh444.projectjim.items.JimItem.JimType;
 import me.josh444.projectjim.utils.Item;

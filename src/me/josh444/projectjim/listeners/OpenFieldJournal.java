@@ -1,14 +1,15 @@
 package me.josh444.projectjim.listeners;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.inventories.FieldJournal;
-import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.items.JimItems;
+import me.josh444.projectjim.utils.Item;
 
 public class OpenFieldJournal implements Listener{
 	
@@ -22,19 +23,18 @@ public class OpenFieldJournal implements Listener{
 	public void openFieldJournal(PlayerInteractEvent e) {
 		
 		Player p = e.getPlayer();
+		ItemStack item = e.getItem();
 		
-		if(e.getItem() != null && !e.getItem().getType().equals(Material.AIR)) {
-		
-		if(e.getItem().hasItemMeta()) {
+		if(Item.isNullOrAir(item)) {
 			
-			String itemName = e.getItem().getItemMeta().getDisplayName();
+			String itemName = Item.getName(item);
 		
-			if(itemName.equals(JimItem.FIELD_JOURNAL.item.getItemMeta().getDisplayName())) {
+			if(itemName.equals(JimItems.FIELD_JOURNAL.getName())) {
 				e.setCancelled(true);
 				fieldJournal.openInventory(p);
 				
 			}
-		}}
+		}
 		
 	}
 }
