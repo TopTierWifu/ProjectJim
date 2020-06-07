@@ -7,53 +7,53 @@ import me.josh444.projectjim.utils.Item;
 import me.josh444.projectjim.utils.Recipe;
 
 public class Recipes {
+
+	private static final String[] BOOT_UPGRADE = new String[] {" a ","aba"," a "};
 	
-		//Not sure if this should be static
-		public static void loadRecipes() {
-			Recipe r = new Recipe();
-			
-			r.addRecipe(JimItems.FIELD_JOURNAL, new String[] {"dac", "beb", "cad"}, new char[] {'a','b','c','d','e'}, new ItemStack[] {Item.make(Material.DIRT),Item.make(Material.SAND),Item.make(Material.GRAVEL),Item.make(Material.COBBLESTONE),Item.make(Material.WRITABLE_BOOK)});
-			r.addRecipe(JimItems.MAGIC_MISSILE_WAND, new String[] {" a ", "   ", "   "}, new char[] {'a'}, new ItemStack[] {Item.make(Material.COBBLESTONE)});
-			r.addRecipe(JimItems.ZAPP_WAND, new String[] {"a  ", "   ", "   "}, new char[] {'a'}, new ItemStack[] {Item.make(Material.COBBLESTONE)});
+	
+	public static void loadRecipes() {
+		Recipe r = new Recipe();
+		
+		r.addRecipe(JimItems.T2_DIAMOND_BOOTS, BOOT_UPGRADE, new ItemStack[] {JimItems.C1_DIAMOND.getItem(),Item.make(Material.DIAMOND_BOOTS)});
+		r.addRecipe(JimItems.T3_DIAMOND_BOOTS, BOOT_UPGRADE, new ItemStack[] {JimItems.C2_DIAMOND.getItem(),JimItems.T2_DIAMOND_BOOTS.getItem()});
+		r.addRecipe(JimItems.T4_DIAMOND_BOOTS, BOOT_UPGRADE, new ItemStack[] {JimItems.C3_DIAMOND.getItem(),JimItems.T3_DIAMOND_BOOTS.getItem()});
+		
+		r.addCRecipe(JimItems.C1_COBBLESTONE, Material.COBBLESTONE);
+		r.addCRecipe(JimItems.C2_COBBLESTONE, JimItems.C1_COBBLESTONE);
+		r.addCRecipe(JimItems.C3_COBBLESTONE, JimItems.C2_COBBLESTONE);
+		r.addCRecipe(JimItems.C4_COBBLESTONE, JimItems.C3_COBBLESTONE);
+		r.addCRecipe(JimItems.C5_COBBLESTONE, JimItems.C4_COBBLESTONE);
+		r.addCRecipe(JimItems.C6_COBBLESTONE, JimItems.C5_COBBLESTONE);
+		r.addCRecipe(JimItems.C7_COBBLESTONE, JimItems.C6_COBBLESTONE);
+		r.addCRecipe(JimItems.C8_COBBLESTONE, JimItems.C7_COBBLESTONE);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_COBBLESTONE, Item.make(Material.COBBLESTONE));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_COBBLESTONE, JimItems.COMPRESSED_COBBLESTONE);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_COBBLESTONE, JimItems.DOUBLE_COMPRESSED_COBBLESTONE);
-			r.addCompressedRecipe(JimItems.QUADRUPLE_COMPRESSED_COBBLESTONE, JimItems.TRIPLE_COMPRESSED_COBBLESTONE);
-			r.addCompressedRecipe(JimItems.QUINTUPLE_COMPRESSED_COBBLESTONE, JimItems.QUADRUPLE_COMPRESSED_COBBLESTONE);
-			r.addCompressedRecipe(JimItems.SEXTUPLE_COMPRESSED_COBBLESTONE, JimItems.QUINTUPLE_COMPRESSED_COBBLESTONE);
+		r.addCRecipe(JimItems.C1_COAL, Material.COAL);
+		r.addCRecipe(JimItems.C2_COAL, JimItems.C1_COAL);
+		r.addCRecipe(JimItems.C3_COAL, JimItems.C2_COAL);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_COAL, Item.make(Material.COAL));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_COAL, JimItems.COMPRESSED_COAL);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_COAL, JimItems.DOUBLE_COMPRESSED_COAL);
-			
-			r.addCompressedRecipe(JimItems.COMPRESSED_IRON, Item.make(Material.IRON_INGOT));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_IRON, JimItems.COMPRESSED_IRON);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_IRON, JimItems.DOUBLE_COMPRESSED_IRON);
+		r.addCRecipe(JimItems.C1_IRON, Material.IRON_INGOT);
+		r.addCRecipe(JimItems.C2_IRON, JimItems.C1_IRON);
+		r.addCRecipe(JimItems.C3_IRON, JimItems.C2_IRON);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_GOLD, Item.make(Material.GOLD_INGOT));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_GOLD, JimItems.COMPRESSED_GOLD);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_GOLD, JimItems.DOUBLE_COMPRESSED_GOLD);
+		r.addCRecipe(JimItems.C1_GOLD, Material.GOLD_INGOT);
+		r.addCRecipe(JimItems.C2_GOLD, JimItems.C1_GOLD);
+		r.addCRecipe(JimItems.C3_GOLD, JimItems.C2_GOLD);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_LAPIS, Item.make(Material.LAPIS_LAZULI));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_LAPIS, JimItems.COMPRESSED_LAPIS);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_LAPIS, JimItems.DOUBLE_COMPRESSED_LAPIS);
+		r.addCRecipe(JimItems.C1_LAPIS, Material.LAPIS_LAZULI);
+		r.addCRecipe(JimItems.C2_LAPIS, JimItems.C1_LAPIS);
+		r.addCRecipe(JimItems.C3_LAPIS, JimItems.C2_LAPIS);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_REDSTONE, Item.make(Material.REDSTONE));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_REDSTONE, JimItems.COMPRESSED_REDSTONE);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_REDSTONE, JimItems.DOUBLE_COMPRESSED_REDSTONE);
+		r.addCRecipe(JimItems.C1_REDSTONE, Material.REDSTONE);
+		r.addCRecipe(JimItems.C2_REDSTONE, JimItems.C1_REDSTONE);
+		r.addCRecipe(JimItems.C3_REDSTONE, JimItems.C2_REDSTONE);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_EMERALD, Item.make(Material.EMERALD));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_EMERALD, JimItems.COMPRESSED_EMERALD);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_EMERALD, JimItems.DOUBLE_COMPRESSED_EMERALD);
+		r.addCRecipe(JimItems.C1_EMERALD, Material.EMERALD);
+		r.addCRecipe(JimItems.C2_EMERALD, JimItems.C1_EMERALD);
+		r.addCRecipe(JimItems.C3_EMERALD, JimItems.C2_EMERALD);
 
-			r.addCompressedRecipe(JimItems.COMPRESSED_DIAMOND, Item.make(Material.DIAMOND));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_DIAMOND, JimItems.COMPRESSED_DIAMOND);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_DIAMOND, JimItems.DOUBLE_COMPRESSED_DIAMOND);
-
-			r.addCompressedRecipe(JimItems.COMPRESSED_OBSIDIAN, Item.make(Material.OBSIDIAN));
-			r.addCompressedRecipe(JimItems.DOUBLE_COMPRESSED_OBSIDIAN, JimItems.COMPRESSED_OBSIDIAN);
-			r.addCompressedRecipe(JimItems.TRIPLE_COMPRESSED_OBSIDIAN, JimItems.DOUBLE_COMPRESSED_OBSIDIAN);
-
-		}
+		r.addCRecipe(JimItems.C1_DIAMOND, Material.DIAMOND);
+		r.addCRecipe(JimItems.C2_DIAMOND, JimItems.C1_DIAMOND);
+		r.addCRecipe(JimItems.C3_DIAMOND, JimItems.C2_DIAMOND);
+		
+	}
 }

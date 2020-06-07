@@ -3,15 +3,10 @@ package me.josh444.projectjim;
 import java.io.File;
 
 import org.bukkit.ChatColor;
-import org.bukkit.GameRule;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.items.Recipes;
-import me.josh444.projectjim.listeners.ManaItemUse;
-import me.josh444.projectjim.listeners.OpenFieldJournal;
-import me.josh444.projectjim.listeners.PlayerSetup;
-import me.josh444.projectjim.listeners.inventories.FieldJournalInteract;
-import me.josh444.projectjim.listeners.inventories.ResearchTopicInteract;
+import me.josh444.projectjim.listeners.CancelBlockPlacement;
 
 public class ProjectJim extends JavaPlugin{
 	
@@ -25,9 +20,6 @@ public class ProjectJim extends JavaPlugin{
 		
 		Recipes.loadRecipes();
 		
-		//Enabling limited crafting so custom recipes may work properly in recipe book
-		getServer().getWorld("world").setGameRule(GameRule.DO_LIMITED_CRAFTING, true);
-		
 		//Enable message
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Project Jim has been enabled");
 	}
@@ -37,17 +29,7 @@ public class ProjectJim extends JavaPlugin{
 	}
 	
 	public void registerEvents() {
-		
-		new OpenFieldJournal(this);
-		new PlayerSetup(this);
-		
-		//Custom GUI interact
-		new FieldJournalInteract(this);
-		new ResearchTopicInteract(this);
-		
-		//Test
-		//new UnlockTopic(this);
-		new ManaItemUse(this);
+		new CancelBlockPlacement(this);
 	}
 	
 	public void setupConfig() {

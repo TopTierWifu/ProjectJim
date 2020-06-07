@@ -3,60 +3,51 @@ package me.josh444.projectjim.items;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
-import me.josh444.projectjim.inventories.Items;
-import me.josh444.projectjim.items.JimItem.JimCategory;
-import me.josh444.projectjim.items.JimItem.JimType;
+import me.josh444.projectjim.items.JimItem.Type;
 import me.josh444.projectjim.utils.Item;
-import me.josh444.projectjim.utils.Mana;
-import me.josh444.projectjim.utils.SkullTexture;
+import me.josh444.projectjim.utils.ItemAttribute;
 
 public class JimItems {
-
-	public static final JimItem FIELD_JOURNAL = new JimItem(Item.make(Material.WRITTEN_BOOK, 1, ChatColor.DARK_PURPLE + "Field Journal"), "field_journal", JimType.DEFAULT, JimCategory.DEFAULT);
-
-	public static final JimItem COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.WHITE + "Compressed Cobblestone", ChatColor.GRAY + "4 Cobblestone"), "compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.COBBLESTONE, 256));
-	public static final JimItem DOUBLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.GREEN + "Double Compressed Cobblestone", ChatColor.GRAY + "16 Cobblestone"), "double_compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_COBBLESTONE.getItem(), 128));
-	public static final JimItem TRIPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.BLUE + "Triple Compressed Cobblestone", ChatColor.GRAY + "64 Cobblestone"), "triple_compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_COBBLESTONE.getItem(), 64));
-	public static final JimItem QUADRUPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.DARK_PURPLE + "Quadruple Compressed Cobblestone", ChatColor.GRAY + "256 Cobblestone"), "quadruple_compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.TRIPLE_COMPRESSED_COBBLESTONE.getItem(), 32));
-	public static final JimItem QUINTUPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.GOLD + "Quintuple Cobblestone", ChatColor.GRAY + "1024 Cobblestone"), "quintuple_compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.QUADRUPLE_COMPRESSED_COBBLESTONE.getItem(), 16));
-	public static final JimItem SEXTUPLE_COMPRESSED_COBBLESTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_COBBLESTONE, 1, ChatColor.LIGHT_PURPLE + "Sextuple Compressed Cobblestone", ChatColor.GRAY + "4096 Cobblestone"), "sextuple_compressed_cobblestone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.QUINTUPLE_COMPRESSED_COBBLESTONE.getItem(), 8));
 	
-	public static final JimItem COMPRESSED_COAL = new JimItem(Item.skull(SkullTexture.COMPRESSED_COAL, 1, ChatColor.GREEN + "Compressed Coal", ChatColor.GRAY + "4 Coal"), "compressed_coal", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.COAL, 128));
-	public static final JimItem DOUBLE_COMPRESSED_COAL = new JimItem(Item.skull(SkullTexture.COMPRESSED_COAL, 1, ChatColor.BLUE + "Double Compressed Coal", ChatColor.GRAY + "16 Coal"), "double_compressed_coal", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_COAL.getItem(), 64));
-	public static final JimItem TRIPLE_COMPRESSED_COAL = new JimItem(Item.skull(SkullTexture.COMPRESSED_COAL, 1, ChatColor.DARK_PURPLE + "Triple Compressed Coal", ChatColor.GRAY + "64 Coal"), "triple_compressed_coal", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_COAL.getItem(), 32));
+	public static final JimItem T2_DIAMOND_BOOTS = new JimItem(Item.make(Material.DIAMOND_BOOTS, 1, ChatColor.BLUE + "Tier 2 Diamond Boots", ItemAttribute.T2_DIAMOND_BOOTS), "t2_diamond_boots", Type.ARMOR);
+	public static final JimItem T3_DIAMOND_BOOTS = new JimItem(Item.make(Material.DIAMOND_BOOTS, 1, ChatColor.DARK_PURPLE + "Tier 3 Diamond Boots", ItemAttribute.T3_DIAMOND_BOOTS), "t3_diamond_boots", Type.ARMOR);
+	public static final JimItem T4_DIAMOND_BOOTS = new JimItem(Item.make(Material.DIAMOND_BOOTS, 1, ChatColor.LIGHT_PURPLE + "Tier 4 Diamond Boots", ItemAttribute.T4_DIAMOND_BOOTS), "t4_diamond_boots", Type.ARMOR);
 
-	public static final JimItem COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.GREEN + "Compressed Iron", ChatColor.GRAY + "4 Iron"), "compressed_iron", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.IRON_INGOT, 64));
-	public static final JimItem DOUBLE_COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.BLUE + "Double Compressed Iron", ChatColor.GRAY + "16 Iron"), "double_compressed_iron", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_IRON.getItem(), 32));
-	public static final JimItem TRIPLE_COMPRESSED_IRON = new JimItem(Item.skull(SkullTexture.COMPRESSED_IRON, 1, ChatColor.DARK_PURPLE + "Triple Compressed Iron", ChatColor.GRAY + "64 Iron"), "triple_compressed_iron", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_IRON.getItem(), 16));
+	public static final JimItem C1_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.RED + "Compressed Cobblestone", ChatColor.GRAY + "4 Cobblestone"), "c1_cobblestone", Type.COMPRESSED);
+	public static final JimItem C2_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.GOLD + "Double Compressed Cobblestone", ChatColor.GRAY + "16 Cobblestone"), "c2_cobblestone", Type.COMPRESSED);
+	public static final JimItem C3_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.YELLOW + "Triple Compressed Cobblestone", ChatColor.GRAY + "64 Cobblestone"), "c3_cobblestone", Type.COMPRESSED);
+	public static final JimItem C4_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.GREEN + "Quadruple Compressed Cobblestone", ChatColor.GRAY + "256 Cobblestone"), "c4_cobblestone", Type.COMPRESSED);
+	public static final JimItem C5_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.AQUA + "Quintuple Compressed Cobblestone", ChatColor.GRAY + "1,024 Cobblestone"), "c5_cobblestone", Type.COMPRESSED);
+	public static final JimItem C6_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.BLUE + "Sextuple Compressed Cobblestone", ChatColor.GRAY + "4,096 Cobblestone"), "c6_cobblestone", Type.COMPRESSED);
+	public static final JimItem C7_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.DARK_PURPLE + "Septuple Compressed Cobblestone", ChatColor.GRAY + "16,384 Cobblestone"), "c7_cobblestone", Type.COMPRESSED);
+	public static final JimItem C8_COBBLESTONE = new JimItem(Item.make(Material.COBBLESTONE, 1, ChatColor.LIGHT_PURPLE + "Octuple Compressed Cobblestone", ChatColor.GRAY + "65,536 Cobblestone"), "c8_cobblestone", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_GOLD = new JimItem(Item.skull(SkullTexture.COMPRESSED_GOLD, 1, ChatColor.GREEN + "Compressed Gold", ChatColor.GRAY + "4 Gold"), "compressed_gold", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.GOLD_INGOT, 64));
-	public static final JimItem DOUBLE_COMPRESSED_GOLD = new JimItem(Item.skull(SkullTexture.COMPRESSED_GOLD, 1, ChatColor.BLUE + "Double Compressed Gold", ChatColor.GRAY + "16 Gold"), "double_compressed_gold", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_GOLD.getItem(), 32));
-	public static final JimItem TRIPLE_COMPRESSED_GOLD = new JimItem(Item.skull(SkullTexture.COMPRESSED_GOLD, 1, ChatColor.DARK_PURPLE + "Triple Compressed Gold", ChatColor.GRAY + "64 Gold"), "triple_compressed_gold", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_GOLD.getItem(), 16));
+	public static final JimItem C1_COAL = new JimItem(Item.make(Material.COAL, 1, ChatColor.YELLOW + "Compressed Coal", ChatColor.GRAY + "4 Coal"), "c1_coal", Type.COMPRESSED);
+	public static final JimItem C2_COAL = new JimItem(Item.make(Material.COAL, 1, ChatColor.GREEN + "Double Compressed Coal", ChatColor.GRAY + "16 Coal"), "c2_coal", Type.COMPRESSED);
+	public static final JimItem C3_COAL = new JimItem(Item.make(Material.COAL, 1, ChatColor.AQUA + "Triple Compressed Coal", ChatColor.GRAY + "64 Coal"), "c3_coal", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_LAPIS = new JimItem(Item.skull(SkullTexture.COMPRESSED_LAPIS, 1, ChatColor.WHITE + "Compressed Lapis", ChatColor.GRAY + "4 Lapis"), "compressed_lapis", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.LAPIS_LAZULI, 256));
-	public static final JimItem DOUBLE_COMPRESSED_LAPIS = new JimItem(Item.skull(SkullTexture.COMPRESSED_LAPIS, 1, ChatColor.GREEN + "Double Compressed Lapis", ChatColor.GRAY + "16 Lapis"), "double_compressed_lapis", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_LAPIS.getItem(), 128));
-	public static final JimItem TRIPLE_COMPRESSED_LAPIS = new JimItem(Item.skull(SkullTexture.COMPRESSED_LAPIS, 1, ChatColor.BLUE + "Triple Compressed Lapis", ChatColor.GRAY + "64 Lapis"), "triple_compressed_lapis", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_LAPIS.getItem(), 64));
+	public static final JimItem C1_IRON = new JimItem(Item.make(Material.IRON_INGOT, 1, ChatColor.GREEN + "Compressed Iron", ChatColor.GRAY + "4 Iron"), "c1_iron", Type.COMPRESSED);
+	public static final JimItem C2_IRON = new JimItem(Item.make(Material.IRON_INGOT, 1, ChatColor.AQUA + "Double Compressed Iron", ChatColor.GRAY + "16 Iron"), "c2_iron", Type.COMPRESSED);
+	public static final JimItem C3_IRON = new JimItem(Item.make(Material.IRON_INGOT, 1, ChatColor.BLUE + "Triple Compressed Iron", ChatColor.GRAY + "64 Iron"), "c3_iron", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_REDSTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_REDSTONE, 1, ChatColor.WHITE + "Compressed Redstone", ChatColor.GRAY + "4 Redstone"), "compressed_redstone", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.REDSTONE, 256));
-	public static final JimItem DOUBLE_COMPRESSED_REDSTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_REDSTONE, 1, ChatColor.GREEN + "Double Compressed Redstone", ChatColor.GRAY + "16 Redstone"), "double_compressed_redstone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_REDSTONE.getItem(), 128));
-	public static final JimItem TRIPLE_COMPRESSED_REDSTONE = new JimItem(Item.skull(SkullTexture.COMPRESSED_REDSTONE, 1, ChatColor.BLUE + "Triple Compressed Redstone", ChatColor.GRAY + "64 Redstone"), "triple_compressed_redstone", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_REDSTONE.getItem(), 64));
+	public static final JimItem C1_GOLD = new JimItem(Item.make(Material.GOLD_INGOT, 1, ChatColor.AQUA + "Compressed Gold", ChatColor.GRAY + "4 Gold"), "c1_gold", Type.COMPRESSED);
+	public static final JimItem C2_GOLD = new JimItem(Item.make(Material.GOLD_INGOT, 1, ChatColor.BLUE + "Double Compressed Gold", ChatColor.GRAY + "16 Gold"), "c2_gold", Type.COMPRESSED);
+	public static final JimItem C3_GOLD = new JimItem(Item.make(Material.GOLD_INGOT, 1, ChatColor.DARK_PURPLE + "Triple Compressed Gold", ChatColor.GRAY + "64 Gold"), "c3_gold", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_EMERALD = new JimItem(Item.skull(SkullTexture.COMPRESSED_EMERALD, 1, ChatColor.BLUE + "Compressed Emerald", ChatColor.GRAY + "4 Emerald"), "compressed_emerald", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.EMERALD, 64));
-	public static final JimItem DOUBLE_COMPRESSED_EMERALD = new JimItem(Item.skull(SkullTexture.COMPRESSED_EMERALD, 1, ChatColor.DARK_PURPLE + "Double Compressed Emerald", ChatColor.GRAY + "16 Emerald"), "double_compressed_emerald", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_EMERALD.getItem(), 32));
-	public static final JimItem TRIPLE_COMPRESSED_EMERALD = new JimItem(Item.skull(SkullTexture.COMPRESSED_EMERALD, 1, ChatColor.GOLD + "Triple Compressed Emerald", ChatColor.GRAY + "64 Emerald"), "triple_compressed_emerald", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_EMERALD.getItem(), 16));
+	public static final JimItem C1_LAPIS = new JimItem(Item.make(Material.LAPIS_LAZULI, 1, ChatColor.GREEN + "Compressed Lapis", ChatColor.GRAY + "4 Lapis"), "c1_lapis", Type.COMPRESSED);
+	public static final JimItem C2_LAPIS = new JimItem(Item.make(Material.LAPIS_LAZULI, 1, ChatColor.AQUA + "Double Compressed Lapis", ChatColor.GRAY + "16 Lapis"), "c2_lapis", Type.COMPRESSED);
+	public static final JimItem C3_LAPIS = new JimItem(Item.make(Material.LAPIS_LAZULI, 1, ChatColor.BLUE + "Triple Compressed Lapis", ChatColor.GRAY + "64 Lapis"), "c3_lapis", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_DIAMOND = new JimItem(Item.skull(SkullTexture.COMPRESSED_DIAMOND, 1, ChatColor.BLUE + "Compressed Diamond", ChatColor.GRAY + "4 Diamond"), "compressed_diamond", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.DIAMOND, 32));
-	public static final JimItem DOUBLE_COMPRESSED_DIAMOND = new JimItem(Item.skull(SkullTexture.COMPRESSED_DIAMOND, 1, ChatColor.DARK_PURPLE + "Double Compressed Diamond", ChatColor.GRAY + "16 Diamond"), "double_compressed_diamond", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_DIAMOND.getItem(), 16));
-	public static final JimItem TRIPLE_COMPRESSED_DIAMOND = new JimItem(Item.skull(SkullTexture.COMPRESSED_DIAMOND, 1, ChatColor.GOLD + "Triple Compressed Diamond", ChatColor.GRAY + "64 Diamond"), "triple_compressed_diamond", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_DIAMOND.getItem(), 8));
+	public static final JimItem C1_REDSTONE = new JimItem(Item.make(Material.REDSTONE, 1, ChatColor.YELLOW + "Compressed Redstone", ChatColor.GRAY + "4 Redstone"), "c1_redstone", Type.COMPRESSED);
+	public static final JimItem C2_REDSTONE = new JimItem(Item.make(Material.REDSTONE, 1, ChatColor.GREEN + "Double Compressed Redstone", ChatColor.GRAY + "16 Redstone"), "c2_redstone", Type.COMPRESSED);
+	public static final JimItem C3_REDSTONE = new JimItem(Item.make(Material.REDSTONE, 1, ChatColor.AQUA + "Triple Compressed Redstone", ChatColor.GRAY + "64 Redstone"), "c3_redstone", Type.COMPRESSED);
 
-	public static final JimItem COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.BLUE + "Compressed Obsidian", ChatColor.GRAY + "4 Obsidian"), "compressed_obsidian", JimType.RECIPE, JimCategory.COMPRESSED, Item.make(Material.OBSIDIAN, 64));
-	public static final JimItem DOUBLE_COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.DARK_PURPLE + "Double Compressed Obsidian", ChatColor.GRAY + "16 Obsidian"), "double_compressed_obsidian", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.COMPRESSED_OBSIDIAN.getItem(), 32));
-	public static final JimItem TRIPLE_COMPRESSED_OBSIDIAN = new JimItem(Item.skull(SkullTexture.COMPRESSED_OBSIDIAN, 1, ChatColor.GOLD + "Triple Compressed Obsidian", ChatColor.GRAY + "64 Obsidian"), "triple_compressed_obsidian", JimType.RECIPE, JimCategory.COMPRESSED, Item.setAmount(JimItems.DOUBLE_COMPRESSED_OBSIDIAN.getItem(), 16));
-	
-	public static final JimItem PORTABLE_CRAFTING_TABLE = new JimItem(Items.PORTABLE_CRAFTING_TABLE, "portable_crafting_table", JimType.PORTABLE, JimCategory.PORTABLE, Item.make(Material.OAK_LOG, 128));
-	public static final JimItem PORTABLE_TRASH_CAN = new JimItem(Items.PORTABLE_TRASH_CAN, "portable_trash_can", JimType.PORTABLE, JimCategory.PORTABLE, Item.setAmount(JimItems.COMPRESSED_IRON.getItem(), 8));
-	
-	public static final JimItem MAGIC_MISSILE_WAND = new JimItem(Item.wand(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Magic Missile", ChatColor.GRAY + "Shoots a fireball at your enemies", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "magic_missile_wand", JimType.RECIPE, JimCategory.MAGIC_WANDS, Item.make(Material.COBBLESTONE));
-	public static final JimItem ZAPP_WAND = new JimItem(Item.wand(Material.BLAZE_ROD, 1, ChatColor.GOLD + "Zapp", ChatColor.GRAY + "Shoots laser in your line of sight", Mana.prefix + ChatColor.DARK_PURPLE + "50 xp"), "zap_wand", JimType.RECIPE, JimCategory.MAGIC_WANDS, Item.make(Material.COBBLESTONE));
+	public static final JimItem C1_EMERALD = new JimItem(Item.make(Material.EMERALD, 1, ChatColor.AQUA + "Compressed Emerald", ChatColor.GRAY + "4 Emerald"), "c1_emerald", Type.COMPRESSED);
+	public static final JimItem C2_EMERALD = new JimItem(Item.make(Material.EMERALD, 1, ChatColor.BLUE + "Double Compressed Emerald", ChatColor.GRAY + "16 Emerald"), "c2_emerald", Type.COMPRESSED);
+	public static final JimItem C3_EMERALD = new JimItem(Item.make(Material.EMERALD, 1, ChatColor.DARK_PURPLE + "Triple Compressed Emerald", ChatColor.GRAY + "64 Emerald"), "c3_emerald", Type.COMPRESSED);
+
+	public static final JimItem C1_DIAMOND = new JimItem(Item.make(Material.DIAMOND, 1, ChatColor.BLUE + "Compressed Diamond", ChatColor.GRAY + "4 Diamond"), "c1_diamond", Type.COMPRESSED);
+	public static final JimItem C2_DIAMOND = new JimItem(Item.make(Material.DIAMOND, 1, ChatColor.DARK_PURPLE + "Double Compressed Diamond", ChatColor.GRAY + "16 Diamond"), "c2_diamond", Type.COMPRESSED);
+	public static final JimItem C3_DIAMOND = new JimItem(Item.make(Material.DIAMOND, 1, ChatColor.LIGHT_PURPLE + "Triple Compressed Diamond", ChatColor.GRAY + "64 Diamond"), "c3_diamond", Type.COMPRESSED);
 
 }
