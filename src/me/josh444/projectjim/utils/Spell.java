@@ -1,17 +1,10 @@
 package me.josh444.projectjim.utils;
 
-import java.util.Random;
-import java.util.function.Predicate;
-
-import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
-import org.bukkit.Particle.DustOptions;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -38,30 +31,28 @@ public class Spell {
         double x = dir.getX();
         double y = dir.getY();
         double z = dir.getZ();
-
-        Random rand = new Random();
         
-        Predicate<Entity> predicate = (e) -> e instanceof LivingEntity;
+        //Predicate<Entity> predicate = (e) -> e instanceof LivingEntity;
         
         for (double i = 0.5D; i < length; i += 0.5D) {
-            origin.add(x * i, y * i, z * i);
+            origin.subtract(x * i, y * i, z * i);
 
             Block b = origin.getBlock();
             
             if (!b.isEmpty()||!b.isPassable()||!b.isLiquid()) {
-                origin.subtract(x * i, y * i, z * i);
+                origin.add(x * i, y * i, z * i);
             }
             
-            DustOptions dustOptions = new DustOptions(Color.fromRGB(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), 1);
-            origin.getWorld().spawnParticle(Particle.REDSTONE, origin, 0, dustOptions);
+            //DustOptions dustOptions = new DustOptions(Color.fromRGB(255, 0, 0), 1);
+            origin.getWorld().spawnParticle(Particle.HEART, origin, 0);
             
-            for(Entity e : origin.getWorld().getNearbyEntities(origin, 0.75, 0.75, 0.75, predicate)){
-            	if(e.getLocation().distance(origin)<= 1.5) {
-            		((LivingEntity) e).damage(15, p);
-            	}
-            }
+            //for(Entity e : origin.getWorld().getNearbyEntities(origin, 0.75, 0.75, 0.75, predicate)){
+            	//if(e.getLocation().distance(origin)<= 1.5) {
+            		//((LivingEntity) e).damage(15, p);
+            	//}
+            //}
             
-            origin.subtract(x * i, y * i, z * i);
+            origin.add(x * i, y * i, z * i);
         }
 	    
 	}

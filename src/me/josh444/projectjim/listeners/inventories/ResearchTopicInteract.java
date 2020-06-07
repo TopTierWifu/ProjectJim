@@ -47,6 +47,8 @@ public class ResearchTopicInteract implements Listener{
 			Player p = (Player) e.getWhoClicked();
 			ItemStack item = e.getCurrentItem();
 			
+			if(Item.isNullOrAir(item)) {return;}
+			
 			if (item.getType().equals(Material.PAPER)) {
 				e.setCancelled(true);
 				

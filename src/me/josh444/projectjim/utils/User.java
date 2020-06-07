@@ -20,7 +20,7 @@ public class User {
 
 	public static String[] attributes(Player p) {
 		
-		double speed = Math.round(10*(43.178 * p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getValue() - 0.02141))/((double)10.0);
+double speed = Math.round(10*(43.178 * p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getValue() - 0.02141))/((double)10.0);
 		
 		String health = ChatColor.RED + "❤ Health " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
 		String armor = ChatColor.DARK_GREEN + "❈ Armor " + p.getAttribute(Attribute.GENERIC_ARMOR).getValue();

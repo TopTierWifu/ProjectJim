@@ -10,6 +10,7 @@ import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.inventories.FieldJournal;
 import me.josh444.projectjim.inventories.Items;
 import me.josh444.projectjim.inventories.ResearchTopics;
+import me.josh444.projectjim.utils.Item;
 
 public class FieldJournalInteract implements Listener{
 	
@@ -30,6 +31,8 @@ public class FieldJournalInteract implements Listener{
 			
 			Player p = (Player) e.getWhoClicked();
 			ItemStack item = e.getCurrentItem();
+			
+			if(Item.isNullOrAir(item)) {return;}
 			
 			if (item.equals(Items.CLOSE)) {
 				e.setCancelled(true);

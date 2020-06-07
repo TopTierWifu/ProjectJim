@@ -32,7 +32,7 @@ public class Recipe {
 		Bukkit.addRecipe(r);
 	}
 	
-	public void addCompressedRecipe(JimItem result, ItemStack input) {
+	public void addCompressedRecipe(JimItem result, JimItem input) {
 		
 		JimItem jim = result;
 		
@@ -41,10 +41,24 @@ public class Recipe {
 		ShapedRecipe r = new ShapedRecipe(key, item);
 		
 		@SuppressWarnings("deprecation")
-		RecipeChoice c = new RecipeChoice.ExactChoice(input);
+		RecipeChoice c = new RecipeChoice.ExactChoice(input.getItem());
 		
 		r.shape("aaa", "a  ", "   ");
 		r.setIngredient('a', c);
+
+		Bukkit.addRecipe(r);
+	}
+	
+	public void addCompressedRecipe(JimItem result, ItemStack input) {
+		
+		JimItem jim = result;
+		
+		ItemStack item = jim.getItem();
+		NamespacedKey key = new NamespacedKey(plugin, jim.getKey());
+		ShapedRecipe r = new ShapedRecipe(key, item);
+		
+		r.shape("aaa", "a  ", "   ");
+		r.setIngredient('a', input.getType());
 
 		Bukkit.addRecipe(r);
 	}

@@ -25,16 +25,14 @@ public class OpenFieldJournal implements Listener{
 		Player p = e.getPlayer();
 		ItemStack item = e.getItem();
 		
-		if(Item.isNullOrAir(item)) {
+		if(!Item.isNullOrAir(item)) {
 			
 			String itemName = Item.getName(item);
 		
 			if(itemName.equals(JimItems.FIELD_JOURNAL.getName())) {
 				e.setCancelled(true);
 				fieldJournal.openInventory(p);
-				
 			}
 		}
-		
 	}
 }

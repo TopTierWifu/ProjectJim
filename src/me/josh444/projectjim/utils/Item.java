@@ -122,6 +122,7 @@ public class Item {
 	}
 	
 	public static String getName(ItemStack item) {
+		if(Item.isNullOrAir(item)) {return null;}
 		if(item.hasItemMeta()) {
 			return item.getItemMeta().getDisplayName();
 		} else {
