@@ -7,7 +7,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.items.JimItem;
 import me.josh444.projectjim.items.JimItem.Type;
-import me.josh444.projectjim.utils.Logic;
+import me.josh444.projectjim.utils.item.ItemUtil;
 
 public class CancelBlockPlacement implements Listener{
 
@@ -18,10 +18,12 @@ public class CancelBlockPlacement implements Listener{
 	@EventHandler
 	public void onJimPlace(BlockPlaceEvent e) {
 		
-		JimItem jim = Logic.findJimItem(e.getItemInHand());
+		JimItem jim = ItemUtil.findJimItem(e.getItemInHand());
 		
 		if(jim != null) {
-			if(jim.getType() == Type.COMPRESSED) {
+			
+			Type t = jim.getType();
+			if(t == Type.COMPRESSED || t == Type.ORE) {
 				e.setCancelled(true);
 				e.getPlayer().sendMessage("You cannot place " + jim.getName());
 			}

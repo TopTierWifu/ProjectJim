@@ -1,4 +1,4 @@
-package me.josh444.projectjim.utils;
+package me.josh444.projectjim.utils.item;
 
 import java.util.Arrays;
 
@@ -7,6 +7,8 @@ import org.bukkit.Material;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import me.josh444.projectjim.utils.Attributes;
 
 public class Item {
 
@@ -31,13 +33,14 @@ public class Item {
 		return item;
 	}
 	
-	public static ItemStack make(Material material, int amount, String name, ItemAttribute[] attributes, String...lore) {
+	public static ItemStack make(Material material, int amount, String name, Attributes[] attributes, String...lore) {
 		ItemStack item = new ItemStack(material,amount);
 		ItemMeta meta = item.getItemMeta();
 		
 		meta.setDisplayName(ChatColor.WHITE + name);
+		meta.setLore(Arrays.asList(lore));
 		for(int i = 0; i < attributes.length; i++) {
-			ItemAttribute a = attributes[i];
+			Attributes a = attributes[i];
 			meta.addAttributeModifier(a.getAttribute(), new AttributeModifier(a.getUUID(), name, a.getAmount(), a.getOperation(), a.getSlot()));
 
 		}
@@ -45,7 +48,5 @@ public class Item {
 		item.setItemMeta(meta);
 		return item;
 	}
-	
-	
 
 }

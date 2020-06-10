@@ -1,5 +1,127 @@
 package me.josh444.projectjim.utils;
 
+import java.util.UUID;
+
 public class Uuid {
 
+	public static final UUID[] MK_DIAMOND_ARMOR = new UUID[] {
+			UUID.fromString("4665fcbf-8cfb-4074-98f9-029a159c25f1"),
+			UUID.fromString("d554a971-7321-4166-ba0b-7dabda3c2d48")}
+	;
+	
+	//Ores
+	public static final String[] COPPER_ORE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBjNzliMThmOGEwYmQ2ZGM4ZmE4MGU0NjRiMmYyZWViM2E4NzdmY2VlYjZhMjc2Mjg0ZTE4YWRjM2NhNmE2In19fQ==", "7696760b-7d1d-4cc4-886a-19fdaa98a321"};
+	public static final String[] TIN_ORE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQzOWFlNWE4ZDUzODNkNjY4Y2Q1NGJlYzhmOThjYzZjODI2NTk5YWRmNzlkNmJiNjlmNTFiMGU4YzQ1OGIifX19", "b9870a70-e31f-4b91-a466-d083697753db"};
+	public static final String[] LEAD_ORE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTE1MDZhNjI3MDc2ZTk5YzllZTRkODhkNzI5YzQ2ODcxZTMxNTdhZWI3ZjExNWVmY2I3ZjM0MjIxNjMyNTUifX19", "d262dc29-776d-4b83-b0c5-5802cc78d3e9"};
+	public static final String[] SILVER_ORE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzZmYTM4YzBjODU5NTJlYzExODYzYTc5ODhlMGU0OWVjNjhkNGM3MTI5YmE2NmE1MWU4ODI4YmI0NjMwMjc4MCJ9fX0=", "2399d27c-3a58-4cb9-89c6-9026fab711c0"};
+	public static final String[] MAGNESIUM_ORE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDhiNzIwODJlOWI1OWE5ZjYzZDEwN2MxN2UzYzlkNmMyNTU3Mjc5MDM3YTg1MTZkOTI4Yzc0YTFhYTMyOGExYSJ9fX0=", "a687e4d6-77db-48f6-b06e-5537fff2ae6f"};
+
+	//Compressed
+	public static final String[] COMPRESSED_COBBLESTONE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGMxNzU0ODUxZTM2N2U4YmViYTJhNmQ4ZjdjMmZlZGU4N2FlNzkzYWM1NDZiMGYyOTlkNjczMjE1YjI5MyJ9fX0=", "f1c6669d-5e9d-4ea0-be12-d904f51cdb55"};
+	public static final String[] COMPRESSED_COAL = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjZjNWVjYWM5NDJjNzdiOTVhYjQ2MjBkZjViODVlMzgwNjRjOTc0ZjljNWM1NzZiODQzNjIyODA2YTQ1NTcifX19", "491135cb-0b85-4538-8bbc-47529315539c"};
+	public static final String[] COMPRESSED_IRON = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTI2Yjc3MjMyOWNmMzJmODY0M2M0OTI4NjI2YjZhMzI1MjMzZmY2MWFhOWM3NzI1ODczYTRiZDY2ZGIzZDY5MiJ9fX0=", "fadb6b7a-8038-4985-b54b-631f1c3bd9fd"};
+	public static final String[] COMPRESSED_GOLD = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdmNTdlN2FhOGRlODY1OTFiYjBiYzUyY2JhMzBhNDlkOTMxYmZhYmJkNDdiYmM4MGJkZDY2MjI1MTM5MjE2MSJ9fX0=", "904a33cd-1aa6-454f-82f4-ffd06a11a122"};
+	public static final String[] COMPRESSED_LAPIS = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODZmNDc2ODcxZWQyM2Y3OWU3YjlkNDk1NDg5ODg3ZTI0NGM2MTljNWUxOWU0MWNmOTViMjcxYTJlYmU3NSJ9fX0=", "a6bccc86-8924-4365-b9e4-11ef192b7a5e"};
+	public static final String[] COMPRESSED_REDSTONE = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmI3OGZhNWRlZmU3MmRlYmNkOWM3NmFiOWY0ZTExNDI1MDQ3OWJiOWI0NGY0Mjg4N2JiZjZmNzM4NjEyYiJ9fX0=", "6d221ae6-6de8-4475-a6f1-dfa1e8ac8ca3"};
+	public static final String[] COMPRESSED_EMERALD = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmMwZTZkOWUyNDI3MzU0ODE5MThjNWZkMTQ0OThiZDc2MGJiOWY0ZmY2NDMwYWQ0Njk2YjM4ZThhODgzZGE5NyJ9fX0=", "b7427145-dd91-4c11-a5cb-1d390cd532b6"};
+	public static final String[] COMPRESSED_DIAMOND = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYzMTU5N2RjZTRlNDA1MWU4ZDVhNTQzNjQxOTY2YWI1NGZiZjI1YTBlZDYwNDdmMTFlNjE0MGQ4OGJmNDhmIn19fQ==", "744dade6-9bc2-4b1e-a0ca-44a029723dc2"};
+	public static final String[] COMPRESSED_OBSIDIAN = new String[] {"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg0MGI4N2Q1MjI3MWQyYTc1NWRlZGM4Mjg3N2UwZWQzZGY2N2RjYzQyZWE0NzllYzE0NjE3NmIwMjc3OWE1In19fQ==", "779f05f9-3cd6-496b-934d-5380bc6216c6"};
+
+	
+//	4b846655-f210-4a41-aa4d-9bbc8348eece
+//	d7c0e7a6-bc1e-4eef-b8af-1eac81a7aa9c
+//	d92972ed-5146-48d2-a293-328d06a6dbb0
+//	cb8ad3bd-14fb-485d-9199-472513187a7c
+//	48e57c92-82b7-48c3-beec-2ec15fceb58f
+//	177c7ddc-1313-40aa-b5ab-ab028ee8b9dc
+//	5cab445e-e292-4626-bb2e-43cb1c0114ed
+//	71f4a90c-fdb2-4546-8144-d2a36ec1a71f
+//	27e697dc-a22c-480c-9e42-33b7069c14b0
+//	f18f58dd-96f9-4191-b4f4-9165417cd88c
+//	4b8e1a67-00e1-4329-a550-4683db7fc452
+//	9201537f-67b2-469e-9b19-9724034de354
+//	40ac5dea-9254-4039-81f1-99d2d3b67aa4
+//	9ba4ff9c-0e83-4345-afd1-739deacceeda
+//	5c7c66de-52d6-47e1-ba3b-e15de5347a48
+//	1b37ddbd-9775-47f9-99f0-8ad819de34e5
+//	a638c671-0ee5-46a0-a94c-03bdcca78632
+//	4842dc71-c378-4844-aa94-206825c123ff
+//	07bba947-211f-414d-9352-692c995d46e4
+//	7a4d2d20-b9a6-4d7a-acc5-09642cf2e41b
+//	24c1c8c6-40c7-4c69-bf23-693652f14de6
+//	6e966b8a-5f3a-43f5-8a92-5f7230b320c0
+//	c7ab883b-a8ef-4589-94f8-a6011046c27a
+//	0ee2467e-9af0-47aa-9320-11b33e1677bb
+//	b712e9bb-02a5-4327-aa2e-3ef43441a84e
+//	9e76b84d-2460-415e-990b-b6c70e1e63eb
+//	8e6c8d51-2498-4b11-95b3-ccc90091df53
+//	8939d90e-4883-40fe-8f9a-b4fc1fe9fb51
+//	bffe28e0-68d3-486b-888f-cdfd61d7e68c
+//	f2312a04-178f-46e1-b8e5-b52d9ddbc5a5
+//	5a35d6bf-dc3f-4033-a711-ed969829c424
+//	4bbc5b17-386b-494d-a102-5973473cc4d7
+//	19050777-3b15-4103-8fde-bd6d19e4fe5e
+//	c746447d-ceda-4bb8-b3f7-d5934010899a
+//	0925436a-7177-4fe8-8001-b38c862274fe
+//	aa42de0b-fd67-44f4-8a35-7677e33b8c1f
+//	214997e2-3bc2-44c1-a6cc-945fe322a5dc
+//	3e2e0aa9-921f-4002-bcf7-d09d7b39743b
+//	7e572ad3-caa4-4a8f-aca0-7d4ec2ddf99f
+//	9c9e8b76-6aaa-43bf-ad0b-73a17c78b14e
+//	7eda19c8-52b4-470d-b89b-c93c31be0fb5
+//	9b402f2e-a293-46b5-94ac-fdf6aa1f2384
+//	a9c46361-e009-4b54-911a-2a0b4fd9853c
+//	d37b408b-8e66-4fd6-aa1c-37d5f700ebca
+//	e3a20f5d-a713-4583-a2f0-9aede5c0be6e
+//	0b74251f-e3c9-4475-a5e8-819d31ee31f0
+//	22333fd8-4bfa-4f64-8402-8b70ef3a2bfa
+//	4c037487-ae74-4aee-9b9d-fbde3df8c63f
+//	16d4c53e-72a5-441c-a327-76ad1f4ff79f
+//	3981026c-97b6-4891-b655-f26ff77d5a93
+//	7e8f1e60-54fa-4d29-972a-d2a8ed060eb2
+//	aa9dee4d-c534-44fc-be5f-ff9c35ca4049
+//	a7b05cee-2925-4890-a656-cbd706fc6c86
+//	68cbd47e-f7eb-4165-aa87-f67aa9e80271
+//	0321188f-17ce-4bb8-8b05-8bd72c7e116b
+//	3ca5ee87-1f61-435a-9d32-29069de83d14
+//	64d45082-f5fd-40d8-9ab2-1faffe8947ab
+//	4f10d6dd-fa29-4337-986d-018be5a0a10e
+//	55f3ff15-a9cd-40c1-b7f0-102b132ee495
+//	ad95fd80-73e3-4026-a4f7-2a7bb5e3a0a0
+//	2f21fab2-e6e1-4781-82e5-b11d92d20999
+//	3b769fcb-2a47-4107-90b7-9dd508054263
+//	f6bfc8dd-5b0f-4b3d-a154-66a5a85d18ed
+//	87266327-1524-4b45-89dd-2c47ae74673e
+//	e413defd-406a-4e09-b08f-1b87366ead3e
+//	1f38c550-25f9-4bc9-a9d8-b06aebb82088
+//	cad72e34-29cc-4842-954d-41dda56b73a6
+//	694cf024-10cd-4962-8840-841a7660569b
+//	3a333e48-03c5-4147-bc68-61dc57f02e5e
+//	a57d2133-e291-41a2-b846-c48d5d48c4ca
+//	d0848ab7-5ff5-4df0-bb7c-b878f992a1d9
+//	3d826886-aed5-4943-bd85-efb854c95909
+//	c3958c3d-60c1-40dd-814f-b3e524ab8f3d
+//	f264ecad-51d0-41a1-be88-f4d3adb8cee9
+//	220ac215-acfe-4b3d-a84b-761ce58f3308
+//	f8742b16-4f61-4ec6-92b2-385ffa8808f0
+//	a41fc09c-28e5-454b-bf50-86ad2f9effa9
+//	02aac390-7801-4ba2-a523-4287ac6ec430
+//	392b946c-4442-4bb3-94be-47d58cacea50
+//	49bf0e93-30c1-4c95-9d25-dba259e21ed1
+//	513d3e1d-253e-4c3b-85b5-9df323f56eeb
+//	2003e169-f8cd-4873-a6c8-02363c5ffd2f
+//	5f09e69a-ffb9-44da-b27f-6d4661728b68
+//	1f0e89d0-0b95-4f48-bcfa-5886293e2fe0
+//	302b8f8d-8c10-405c-87c8-d65f76f5f9f8
+//	6bdb75da-ad5b-44a7-be48-fb3b0ad917db
+//	92e0db3f-4093-44d2-8617-7f24472dffb6
+//	fccb82b5-ee23-4e73-bf94-9f0ae2754f64
+//	90ad656d-172a-4af9-a4dd-e730ecca5a45
+//	106e6e20-d6eb-4a41-a274-f699fb78c15e
+//	9a517641-471b-45ab-bf22-6bbf81dfc4c1
+//	33b40a33-b3b5-4661-9c71-268cad2e8b13
+//	e933d0ac-22ac-4297-8d10-3bd205c5234b
+//	d421c358-1929-48ba-82f2-4832f8ef3b03
+//	a3448fb7-bbff-4690-9061-cfb3cdc1ef29
+	
 }
