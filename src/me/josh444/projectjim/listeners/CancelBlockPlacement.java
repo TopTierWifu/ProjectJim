@@ -3,10 +3,10 @@ package me.josh444.projectjim.listeners;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.items.JimItem;
-import me.josh444.projectjim.items.JimItem.Type;
 import me.josh444.projectjim.utils.item.ItemUtil;
 
 public class CancelBlockPlacement implements Listener{
@@ -18,15 +18,13 @@ public class CancelBlockPlacement implements Listener{
 	@EventHandler
 	public void onJimPlace(BlockPlaceEvent e) {
 		
-		JimItem jim = ItemUtil.findJimItem(e.getItemInHand());
+		ItemStack item = e.getItemInHand();
 		
-		if(jim != null) {
-			
-			Type t = jim.getType();
-			if(t == Type.COMPRESSED || t == Type.ORE) {
-				e.setCancelled(true);
-				e.getPlayer().sendMessage("You cannot place " + jim.getName());
-			}
+		if(ItemUtil.isNullOrAir(item)) {return;}
+		
+		if(JimItem.isJim(item)) {
+			e.setCancelled(true);
+			e.getPlayer().sendMessage("You cannot place " + ItemUtil.getName(item));
 		}
 	}
 	

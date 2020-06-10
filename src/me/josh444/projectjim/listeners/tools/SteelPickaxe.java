@@ -1,10 +1,12 @@
 package me.josh444.projectjim.listeners.tools;
 
-import java.util.Random;
+import java.util.HashMap;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +14,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
-import me.josh444.projectjim.items.JimItems;
+import me.josh444.projectjim.items.JimItem;
 import me.josh444.projectjim.utils.item.ItemUtil;
 
 public class SteelPickaxe implements Listener{
@@ -26,52 +28,34 @@ public class SteelPickaxe implements Listener{
 		
 		Block b = e.getBlock();
 		
-		if(b.getType() == Material.STONE) {
+		if(b.getType() != Material.STONE) {return;}
+		
+		Player p = e.getPlayer();
+		ItemStack item = p.getInventory().getItemInMainHand();
+		
+		if(p.getGameMode() == GameMode.CREATIVE) {return;}
+		if(item.getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {return;}
+		
+		World w = p.getWorld();
 			
-			int r = new Random().nextInt(1000);
-			Player p = e.getPlayer();
-			World w = p.getWorld();
-			ItemStack item = p.getInventory().getItemInMainHand();
-			
-			if(JimItems.STEEL_PICKAXE.isItem(item)) {
-				
-				if(r >= 970) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.COPPER_ORE.getItem());
-				} else if (r >= 940) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.LEAD_ORE.getItem());	
-				} else if (r >= 910) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.MAGNESIUM_ORE.getItem());
-				} else if (r >= 880) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.COPPER_ORE.getItem());
-				} else if (r >= 850) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.TIN_ORE.getItem());
-				}
-				
-			} else {
-				if(r >= 997) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.COPPER_ORE.getItem());
-				} else if (r >= 994) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.LEAD_ORE.getItem());	
-				} else if (r >= 991) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.MAGNESIUM_ORE.getItem());
-				} else if (r >= 988) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.COPPER_ORE.getItem());
-				} else if (r >= 985) {
-					e.setDropItems(false);
-					ItemUtil.dropItem(w, b, JimItems.TIN_ORE.getItem());
-				}
-			}
-			
+		if(JimItem.STEEL_PICKAXE.isItem(item)) {
+			HashMap<ItemStack, Double> lootTable = new HashMap<>();
+			lootTable.put(JimItem.COPPER_ORE.getItem(), 3D);
+			lootTable.put(JimItem.LEAD_ORE.getItem(), 3D);
+			lootTable.put(JimItem.MAGNESIUM_ORE.getItem(), 3D);
+			lootTable.put(JimItem.SILVER_ORE.getItem(), 3D);
+			lootTable.put(JimItem.TIN_ORE.getItem(), 3D);
+			e.setDropItems(!ItemUtil.dropLoot(w, b, lootTable));
+		} else {
+			HashMap<ItemStack, Double> lootTable = new HashMap<>();
+			lootTable.put(JimItem.COPPER_ORE.getItem(), .3D);
+			lootTable.put(JimItem.LEAD_ORE.getItem(), .3D);
+			lootTable.put(JimItem.MAGNESIUM_ORE.getItem(), .3D);
+			lootTable.put(JimItem.SILVER_ORE.getItem(), .3D);
+			lootTable.put(JimItem.TIN_ORE.getItem(), .3D);
+			e.setDropItems(!ItemUtil.dropLoot(w, b, lootTable));
 		}
+		
 		
 	}
 }

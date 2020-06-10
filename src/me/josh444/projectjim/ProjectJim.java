@@ -7,11 +7,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.josh444.projectjim.items.Recipes;
 import me.josh444.projectjim.listeners.CancelBlockPlacement;
+import me.josh444.projectjim.listeners.PlayerSetup;
 import me.josh444.projectjim.listeners.tools.SteelPickaxe;
 
 public class ProjectJim extends JavaPlugin{
 	
-	public static String prefix = ChatColor.GREEN + "Project Jim " + ChatColor.GRAY + "> " + ChatColor.WHITE;
+	public static String prefix = ChatColor.GREEN + "Project Jim " + ChatColor.GRAY + "> " + ChatColor.RESET;
 	
 	public void onEnable() {
 		
@@ -32,6 +33,7 @@ public class ProjectJim extends JavaPlugin{
 	public void registerEvents() {
 		new CancelBlockPlacement(this);
 		new SteelPickaxe(this);
+		new PlayerSetup(this);
 	}
 	
 	public void setupConfig() {

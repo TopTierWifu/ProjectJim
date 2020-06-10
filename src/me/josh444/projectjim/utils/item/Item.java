@@ -1,14 +1,11 @@
 package me.josh444.projectjim.utils.item;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import me.josh444.projectjim.utils.Attributes;
 
 public class Item {
 
@@ -22,31 +19,25 @@ public class Item {
 		return item;
 	}
 	
-	public static ItemStack make(Material material, int amount, String name, String...lore) {
+	public static ItemStack make(Material material, int amount, String name) {
 		ItemStack item = new ItemStack(material,amount);
 		ItemMeta meta = item.getItemMeta();
 		
-		meta.setDisplayName(ChatColor.WHITE + name);
-		meta.setLore(Arrays.asList(lore));
+		meta.setDisplayName(ChatColor.RESET + name);
 		
 		item.setItemMeta(meta);
 		return item;
 	}
 	
-	public static ItemStack make(Material material, int amount, String name, Attributes[] attributes, String...lore) {
+	public static ItemStack make(Material material, int amount, String name, List<String> lore) {
 		ItemStack item = new ItemStack(material,amount);
 		ItemMeta meta = item.getItemMeta();
 		
-		meta.setDisplayName(ChatColor.WHITE + name);
-		meta.setLore(Arrays.asList(lore));
-		for(int i = 0; i < attributes.length; i++) {
-			Attributes a = attributes[i];
-			meta.addAttributeModifier(a.getAttribute(), new AttributeModifier(a.getUUID(), name, a.getAmount(), a.getOperation(), a.getSlot()));
-
-		}
+		meta.setDisplayName(ChatColor.RESET + name);
+		meta.setLore(lore);
 		
 		item.setItemMeta(meta);
 		return item;
 	}
-
+	
 }
