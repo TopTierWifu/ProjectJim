@@ -7,14 +7,15 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.utils.item.Item;
-import me.josh444.projectjim.utils.item.ItemUtil;
+import me.josh444.projectjim.utils.item.NBT;
 import me.josh444.projectjim.utils.item.Skull;
 import me.josh444.projectjim.utils.item.Texture;
 
 public enum JimItem {
 	
 	//Tools
-	STEEL_PICKAXE(Item.make(Material.IRON_PICKAXE, 1, ChatColor.GOLD + "Steel Pickaxe"), "steel_pickaxe"),
+	STEEL_PICKAXE(Item.make(Material.IRON_PICKAXE, 1, ChatColor.GOLD + "Steel Pickaxe", Arrays.asList("", ChatColor.GRAY + "Increases your chance to mine", ChatColor.GRAY + "custom ores from stone")), "steel_pickaxe"),
+	MOLTEN_PICKAXE(Item.make(Material.IRON_PICKAXE, 1, ChatColor.GOLD + "Molten Pickaxe", Arrays.asList("", ChatColor.GRAY + "Smelts everything you mine")), "molten_pickaxe"),
 	
 	//Ores
 	COPPER_ORE(Skull.make(Texture.COPPER_ORE, 1, ChatColor.GOLD + "Copper Ore"), "copper_ore"),
@@ -25,11 +26,25 @@ public enum JimItem {
 			
 	//Metals
 	STEEL(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Steel Ingot"), "steel"),
-	COPPER_INGOT(Item.make(Material.BRICK, 1, ChatColor.GOLD + "Copper Ingot"), "copper_ingot"),
-	TIN_INGOT(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Tin Ingot"), "tin_ingot"),
-	LEAD_INGOT(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Lead Ingot"), "lead_ingot"),
-	SILVER_INGOT(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Silver Ingot"), "silver_ingot"),
-	MAGNESIUM_INGOT(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Magnesium Ingot"), "magnesium_ingot"),
+	R_STEEL(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Reinforced Steel Ingot"), "r_steel"),
+	COPPER(Item.make(Material.BRICK, 1, ChatColor.GOLD + "Copper Ingot"), "copper_ingot"),
+	TIN(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Tin Ingot"), "tin_ingot"),
+	LEAD(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Lead Ingot"), "lead_ingot"),
+	SILVER(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Silver Ingot"), "silver_ingot"),
+	MAGNESIUM(Item.make(Material.IRON_INGOT, 1, ChatColor.GOLD + "Magnesium Ingot"), "magnesium_ingot"),
+	
+	//Crafting Materials
+	RNG(Skull.make(Texture.RNG, 1, ChatColor.GOLD + "Essence of RNG"), "rng"),
+	
+	//Upgrade Cores
+	UPGRADE_CORE(Skull.make(Texture.UPGRADE_CORE, 1, ChatColor.BLUE + "Upgrade Core", Arrays.asList(ChatColor.GRAY + "Base for all tool upgrades")), "upgrade_core"),
+	MOLTEN_CORE(Skull.make(Texture.MOLTEN_CORE, 1, ChatColor.BLUE + "Molten Core", Arrays.asList(ChatColor.GRAY + "Anything you mine is smelted")), "molten_core"),
+	TREASURE_CORE(Skull.make(Texture.TREASURE_CORE, 1, ChatColor.BLUE + "Treasure Core", Arrays.asList(ChatColor.GRAY + "Gives a chance to mine up", ChatColor.GRAY + "treasures from the earth")), "treasure_core"),
+
+	//Magic
+	MAGIC_DUST(Item.make(Material.GUNPOWDER, 1, ChatColor.DARK_AQUA + "Magic Dust"), "magic_dust"),
+	MAGIC_ESSENCE(Skull.make(Texture.MAGIC_ESSENCE, 1, ChatColor.DARK_AQUA + "Magic Essence"), "magic_essence"),
+	MAGIC_ROD(Item.make(Material.BLAZE_ROD, 1, ChatColor.DARK_AQUA + "Magic Rod"), "magic_rod"),
 	
 	//Compressed Items
 	C1_COBBLE(Skull.make(Texture.C_COBBLE, 1, ChatColor.RED + "Compressed Cobblestone", Arrays.asList(ChatColor.GRAY + "9 Cobblestone")), "c1_cobblestone"),
@@ -55,7 +70,7 @@ public enum JimItem {
 	private ItemStack item;
 
 	JimItem(ItemStack item, String key) {
-		this.item = item;
+		this.item = NBT.addString(item, "jim", key);
 		this.key = key;
 	}
 	
@@ -72,7 +87,10 @@ public enum JimItem {
 	}
 	
 	public boolean isItem(ItemStack item) {
-		if(ItemUtil.getName(item).equals(this.getName())) {
+		if(!NBT.hasTag(item, "jim")) {
+			return false;
+		}
+		if(NBT.getString(item, "jim").equals(key)) {
 			return true;
 		} else {
 			return false;
@@ -82,7 +100,7 @@ public enum JimItem {
 	public static boolean isJim(ItemStack item) {
 		boolean result = false;
 		for(JimItem jim: JimItem.values()) {
-			if(ItemUtil.getName(item).equals(jim.getName())) {
+			if(jim.isItem(item)) {
 				result = true;
 			}
 		}

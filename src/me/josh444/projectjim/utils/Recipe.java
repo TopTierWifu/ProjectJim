@@ -33,6 +33,20 @@ public class Recipe {
 		Bukkit.addRecipe(r);
 	}
 	
+	@SuppressWarnings("deprecation")
+	public void addRecipe(JimItem jim, String[] shape, Material[] input) {
+
+		ShapedRecipe r = new ShapedRecipe(new NamespacedKey(plugin, jim.getKey()), jim.getItem());
+		
+		r.shape(shape);
+		
+		for(int i = 0; i < input.length; i++) {
+			r.setIngredient(keys[i], new RecipeChoice.ExactChoice(Item.make(input[i])));
+		}
+
+		Bukkit.addRecipe(r);
+	}
+	
 	public void addCRecipe(JimItem jim, JimItem item) {
 		ShapedRecipe r = new ShapedRecipe(new NamespacedKey(plugin, jim.getKey()), jim.getItem());
 		
