@@ -9,7 +9,6 @@ import me.josh444.projectjim.items.Recipes;
 import me.josh444.projectjim.listeners.CancelBlockPlacement;
 import me.josh444.projectjim.listeners.ItemUpgrade;
 import me.josh444.projectjim.listeners.PlayerSetup;
-import me.josh444.projectjim.listeners.StructureGen;
 import me.josh444.projectjim.listeners.mobdrops.Witch;
 import me.josh444.projectjim.listeners.tools.MoltenPickaxe;
 import me.josh444.projectjim.listeners.tools.StoneBreak;
@@ -34,10 +33,7 @@ public class ProjectJim extends JavaPlugin{
 		getServer().getConsoleSender().sendMessage(ChatColor.RED + "Project Jim has been disabled");
 	}
 	
-	public void registerEvents() {
-		
-		new StructureGen(this);
-		
+	public void registerEvents() {		
 		new PlayerSetup(this);
 		new CancelBlockPlacement(this);
 		new ItemUpgrade(this);
