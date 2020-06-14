@@ -1,7 +1,5 @@
 package me.josh444.projectjim.listeners.tools;
 
-import java.util.HashMap;
-
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -14,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 
 import me.josh444.projectjim.ProjectJim;
 import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.utils.LootTable;
+import me.josh444.projectjim.utils.Upgrade;
 import me.josh444.projectjim.utils.item.Item;
 import me.josh444.projectjim.utils.item.ItemUtil;
 import me.josh444.projectjim.utils.item.NBT;
@@ -50,36 +50,16 @@ public class StoneBreak implements Listener{
 	}
 	
 	private static void dropLoot(ItemStack item, Double rate, Block b, BlockBreakEvent e) {
-		HashMap<ItemStack, Double> lootTable = makeOreHashMap(rate);
-		if(NBT.hasTag(item, "treasure find")) {lootTable = ItemUtil.addTreasureHashMap(lootTable);}
+		LootTable lootTable = new LootTable(); lootTable.addOres(rate);
+		if(NBT.hasTag(item, Upgrade.TREASURE.getKey())) {lootTable.addTreasure(50D);}
 		e.setDropItems(!ItemUtil.dropLoot(b.getLocation(), lootTable));
 	}
 	
 	private static void dropMoltenLoot(ItemStack item, Double rate, Block b, BlockBreakEvent e) {
-		HashMap<ItemStack, Double> lootTable = makeMoltenOreHashMap(rate);
-		if(NBT.hasTag(item, "treasure find")) {lootTable = ItemUtil.addTreasureHashMap(lootTable);}
-		lootTable = ItemUtil.addRest(Item.make(Material.STONE), lootTable);
+		LootTable lootTable = new LootTable(); lootTable.addMoltenOres(rate);
+		if(NBT.hasTag(item, Upgrade.TREASURE.getKey())) {lootTable.addTreasure(50D);}
+		lootTable.addDefault(Item.make(Material.STONE));
 		e.setDropItems(!ItemUtil.dropLoot(b.getLocation(), lootTable));
-	}
-	
-	public static HashMap<ItemStack, Double> makeOreHashMap(double rate) {
-		HashMap<ItemStack, Double> lootTable = new HashMap<>();
-		lootTable.put(JimItem.COPPER_ORE.getItem(), rate);
-		lootTable.put(JimItem.LEAD_ORE.getItem(), rate);
-		lootTable.put(JimItem.MAGNESIUM_ORE.getItem(), rate);
-		lootTable.put(JimItem.SILVER_ORE.getItem(), rate);
-		lootTable.put(JimItem.TIN_ORE.getItem(), rate);
-		return lootTable;
-	}
-	
-	public static HashMap<ItemStack, Double> makeMoltenOreHashMap(double rate) {
-		HashMap<ItemStack, Double> lootTable = new HashMap<>();
-		lootTable.put(JimItem.SILVER.getItem(), rate);
-		lootTable.put(JimItem.COPPER.getItem(), rate);
-		lootTable.put(JimItem.MAGNESIUM.getItem(), rate);
-		lootTable.put(JimItem.TIN.getItem(), rate);
-		lootTable.put(JimItem.LEAD.getItem(), rate);
-		return lootTable;
 	}
 	
 }

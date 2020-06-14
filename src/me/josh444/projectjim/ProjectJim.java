@@ -8,8 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.josh444.projectjim.items.Recipes;
 import me.josh444.projectjim.listeners.CancelBlockPlacement;
 import me.josh444.projectjim.listeners.ItemUpgrade;
+import me.josh444.projectjim.listeners.MobDrops;
 import me.josh444.projectjim.listeners.PlayerSetup;
-import me.josh444.projectjim.listeners.mobdrops.Witch;
 import me.josh444.projectjim.listeners.tools.MoltenPickaxe;
 import me.josh444.projectjim.listeners.tools.StoneBreak;
 
@@ -43,7 +43,7 @@ public class ProjectJim extends JavaPlugin{
 		new MoltenPickaxe(this);
 		
 		//Mob Drops
-		new Witch(this);
+		new MobDrops(this);
 	}
 	
 	public void setupConfig() {

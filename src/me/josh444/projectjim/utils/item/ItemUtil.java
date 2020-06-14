@@ -10,7 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import me.josh444.projectjim.items.JimItem;
+import me.josh444.projectjim.utils.LootTable;
 
 public class ItemUtil {
 
@@ -42,10 +42,11 @@ public class ItemUtil {
 		}
 	}
 	
-	public static boolean dropLoot(Location loc, HashMap<ItemStack, Double> lootTable) {
+	public static boolean dropLoot(Location loc, LootTable table) {
 		
 		Double r = new Random().nextDouble() * 100;
 		Double p = 100D;
+		HashMap<ItemStack, Double> lootTable = table.getTable();
 		Iterator<ItemStack> keys = lootTable.keySet().iterator();
 		ItemStack key = null;
 		
@@ -72,22 +73,5 @@ public class ItemUtil {
 		item.setItemMeta(meta);
 		return item;
 	}
-	
-	public static HashMap<ItemStack, Double> addTreasureHashMap(HashMap<ItemStack, Double> lootTable) {
-		lootTable.put(JimItem.RNG.getItem(), 50D);
-		return lootTable;
-	}
-	
-	public static HashMap<ItemStack, Double> addRest(ItemStack item, HashMap<ItemStack, Double> lootTable) {
-		double p = 100D;
-		Iterator<ItemStack> keys = lootTable.keySet().iterator();
-		for(int i = 0; i < lootTable.size(); i++) {
-			if(keys.hasNext()) {p -= lootTable.get(keys.next());}
-		}
-		lootTable.put(item, p);
-		return lootTable;
-	}
-	
-	
 	
 }
